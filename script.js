@@ -5,7 +5,7 @@ panel = document.querySelectorAll('.panel')
 
 const fetchLegends = async () => {
 
-    const url = `http://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion.json`
+    const url = `https://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion.json`
     const res = await fetch(url)
     const data = await res.json()
 
@@ -28,7 +28,7 @@ const fetchLegends = async () => {
 
         const champInnerHTML = `
         <div class="img-container">
-            <img src="http://ddragon.leagueoflegends.com/cdn/12.10.1/img/champion/${key}.png" alt="${key}">
+            <img src="https://ddragon.leagueoflegends.com/cdn/12.10.1/img/champion/${key}.png" alt="${key}">
         </div>
         <div class="info">
         <button class="astext" id="skin" onClick="skinView('${key}')">${key}</button>
@@ -55,7 +55,7 @@ const skinView = async (name) => {
     }
 
     console.log(name)
-    const url = `http://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion/${name}.json`
+    const url = `https://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion/${name}.json`
     const res = await fetch(url)
     const data = await res.json()
 
@@ -87,7 +87,7 @@ const skinView = async (name) => {
         const skinEL = document.createElement('div')
         skinEL.setAttribute("class","panel active")
 
-        dir = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+ name + '_' + data.data[name].skins[i].num + '.jpg'
+        dir = 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+ name + '_' + data.data[name].skins[i].num + '.jpg'
         //console.log(dir)
         skinEL.setAttribute("style", "background-image: url(" + dir + ")")
         
