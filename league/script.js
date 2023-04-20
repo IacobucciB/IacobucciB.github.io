@@ -58,20 +58,7 @@ var skinView = async (name) => {
 
 
     for (let i = 0; i < Object.keys(data.data[name].skins).length; i++) {
-        /*
-                const skinEL = document.createElement('div')
-                skinEL.setAttribute("class", "panel active")
-        
-                dir = 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + name + '_' + data.data[name].skins[i].num + '.jpg'
-                console.log(dir)
-        
-                skinEL.setAttribute("style", "background-image: url(" + dir + ")")
-        
-        
-                skinEL.innerHTML = "<h3>" + data.data[name].skins[i].name + "</h3>";
-        
-                skin_container.appendChild(skinEL)
-        */
+
 
         const skinEL = document.createElement('div')
         skinEL.setAttribute("class", "mySlides fade")
@@ -91,16 +78,15 @@ var skinView = async (name) => {
         skin_container.appendChild(skinEL)
 
     }
-    // Crear los elementos de enlace
+
     const prevLink = document.createElement('a');
     prevLink.classList.add('prev');
-    prevLink.textContent = '\u00AB'; // Agregar el texto del enlace usando el código Unicode
+    prevLink.textContent = '\u00AB';
 
     const nextLink = document.createElement('a');
     nextLink.classList.add('next');
-    nextLink.textContent = '\u00BB'; // Agregar el texto del enlace usando el código Unicode
+    nextLink.textContent = '\u00BB';
 
-    // Agregar los manejadores de eventos
     prevLink.onclick = function () {
         plusSlides(-1);
     };
@@ -115,7 +101,6 @@ var skinView = async (name) => {
     let slideIndex = 1;
     showSlides(slideIndex);
 
-    // Next/previous controls
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
