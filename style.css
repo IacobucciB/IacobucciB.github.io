@@ -27,17 +27,36 @@ li a:hover {
 }
 
 body {
-  background-color: #8BC6EC;
-  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  background-color: #666;
+  color: azure;
+}
+
+
+.card {
+  width: 400px;
+  margin: 10px auto;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #000;
+  background-color: #373737;
+  padding: 20px;
+}
+
+.card-content {
+  font-family: Roboto;
+  margin: 10px;
+}
+
+.column {
+  display: flex;
+  justify-content: space-between;
 }
 
 .info {
-  display: grid;
-}
-
-.section {
-  font-family: Roboto;
-  place-self: left;
-  color: #000;
-  
+  width: calc(50% - 10px);
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  background-color: #373737;
+  padding: 20px;
 }
