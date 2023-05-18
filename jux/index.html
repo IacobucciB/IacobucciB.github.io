@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JuxtaposeJS</title>
+  <style>
+    #juxtapose-slider {
+      width: 100%;
+      height: 400px;
+      /* Ajusta la altura según tus necesidades */
+    }
+  </style>
+  <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+
+  <div id="foo"></div>
+
+  <script>
+    slider = new juxtapose.JXSlider('#foo',
+      [
+        {
+          src: 'before.png',
+          label: '2009',
+          credit: 'Image Credit'
+        },
+        {
+          src: 'after.png',
+          label: '2014',
+          credit: "Image Credit"
+        }
+      ],
+      {
+        animate: true,
+        showLabels: true,
+        showCredits: true,
+        startingPosition: "50%",
+        makeResponsive: true
+      });
+  </script>
+
+</body>
+
+</html>
