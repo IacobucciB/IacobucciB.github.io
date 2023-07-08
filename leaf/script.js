@@ -81,7 +81,7 @@ animateButton.addEventListener("click", () => {
     <img src="${currentMarkerData.imagen}" alt="Imagen de la universidad">
     <p>${currentMarkerData.descripcion}</p>
   `;
-  animateButton.textContent = `SIG`;
+  animateButton.textContent = `>`;
 });
 
 const backButton = document.getElementById("backButton");
@@ -95,5 +95,5 @@ backButton.addEventListener("click", () => {
     <img src="${currentMarkerData.imagen}" alt="Imagen de la universidad">
     <p>${currentMarkerData.descripcion}</p>
   `;
-  animateButton.textContent = `SIG`;
+  backButton.textContent = `<`;
 });
