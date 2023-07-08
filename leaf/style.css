@@ -21,15 +21,58 @@
   top: 10px;
   right: 10px;
   z-index: 1000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #373737;
+  border: 2px solid #00aa8d;
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+#backButton {
+  position: absolute;
+  top: 10px;
+  right: 80px;
+  z-index: 1000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #373737;
+  border: 2px solid #00aa8d;
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .leaflet-bottom-left {
   position: absolute;
   bottom: 10px;
   left: 10px;
   font-size: 12px;
-  color: red;
-  background-color: rgba(255, 255, 255, 0.7);
+  color: white;
+  background-color: #373737;
+  border: 2px solid #00aa8d;
   padding: 5px;
   border-radius: 5px;
+}
+
+.card {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: #373737;
+  border: 2px solid #00aa8d;
+  color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  left: 60%;
 }

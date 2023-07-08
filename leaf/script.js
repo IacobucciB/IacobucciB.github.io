@@ -67,11 +67,33 @@ const leafletMarkers = markers.map(({ lat, lng, descripcion }) =>
   L.marker([lat, lng]).addTo(map).bindPopup(descripcion)
 );
 
+const card = document.querySelector('.card');
+
 let currentMarkerIndex = 0;
 const animateButton = document.getElementById("animateButton");
 animateButton.addEventListener("click", () => {
   currentMarkerIndex = (currentMarkerIndex + 1) % markers.length;
   const currentMarker = leafletMarkers[currentMarkerIndex];
   map.flyTo([currentMarker.getLatLng().lat, currentMarker.getLatLng().lng], 15);
-  animateButton.textContent = `Ir a ${json[Object.keys(json)[currentMarkerIndex]].universidad}`;
+  const currentMarkerData = json[Object.keys(json)[currentMarkerIndex]];
+  card.innerHTML = `
+    <h2>${currentMarkerData.universidad}</h2>
+    <img src="${currentMarkerData.imagen}" alt="Imagen de la universidad">
+    <p>${currentMarkerData.descripcion}</p>
+  `;
+  animateButton.textContent = `SIG`;
+});
+
+const backButton = document.getElementById("backButton");
+backButton.addEventListener("click", () => {
+  currentMarkerIndex = (currentMarkerIndex - 1 + markers.length) % markers.length;
+  const currentMarker = leafletMarkers[currentMarkerIndex];
+  map.flyTo([currentMarker.getLatLng().lat, currentMarker.getLatLng().lng], 15);
+  const currentMarkerData = json[Object.keys(json)[currentMarkerIndex]];
+  card.innerHTML = `
+    <h2>${currentMarkerData.universidad}</h2>
+    <img src="${currentMarkerData.imagen}" alt="Imagen de la universidad">
+    <p>${currentMarkerData.descripcion}</p>
+  `;
+  animateButton.textContent = `SIG`;
 });
