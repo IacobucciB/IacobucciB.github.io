@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Tools</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">TOOLS</button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#">CALCULADORA</a>
-          <a href="#">CONVERSOR</a>
-        </div>
-      </div>
 
-    <script src="script.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">TOOLS</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#" onclick="mostrarContenido('calculadora')">CALCULADORA</a>
+      <a href="#" onclick="mostrarContenido('conversor')">CONVERSOR</a>
+    </div>
+  </div>
+
+  <div class="tooling">
+    <div id="calculadora" style="display: none;">
+      <!-- Contenido de la calculadora -->
+      <div style="background-color: red; width: 200px; height: 200px;"></div>
+
+    </div>
+
+    <div id="conversor" style="display: none;">
+      <!-- Contenido del conversor -->
+
+      <div style="background-color: blue; width: 200px; height: 200px;"></div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
