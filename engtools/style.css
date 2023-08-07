@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #666;
+}
+
+.converter-body {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #373737;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.converter-title {
+    color: white;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select {
+    color: white;
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #373737;
+}
+
+span {
+    color: white;
+}
