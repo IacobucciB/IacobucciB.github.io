@@ -9,61 +9,11 @@
 </head>
 
 <body>
-  <div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">TOOLS</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a href="#" onclick="mostrarContenido('calculadora')">CALCULADORA</a>
-      <a href="#" onclick="mostrarContenido('conversor')">SI CONVERSOR</a>
-    </div>
-  </div>
-
-  <div class="tooling">
-    <div id="calculadora" style="display: none;">
-    </div>
-
-    <div id="conversor" style="display: none;">
-      <form id="converter-form">
-        <label for="inputNumber">INPUT NUMBER</label>
-        <input type="number" id="inputNumber" step="any" required>
-
-        <label for="unitSelector">SELECT UNIT</label>
-        <select id="unitSelector">
-          <option value="yotta">YOTTA</option>
-          <option value="zetta">ZETTA</option>
-          <option value="exa">EXA</option>
-          <option value="peta">PETA</option>
-          <option value="tera">TERA</option>
-          <option value="giga">GIGA</option>
-          <option value="mega">MEGA</option>
-          <option value="kilo">KILO</option>
-          <option value="hecta">HECTA</option>
-          <option value="deca">DECA</option>
-          <option value="base">BASE</option>
-          <option value="deci">DECI</option>
-          <option value="centi">CENTI</option>
-          <option value="mili">MILI</option>
-          <option value="micro">MICRO</option>
-          <option value="nano">NANO</option>
-          <option value="pico">PICO</option>
-          <option value="femta">FEMTA</option>
-          <option value="atto">ATTO</option>
-          <option value="zepto">ZEPTO</option>
-          <option value="yotto">YOTTO</option>
-        </select>
-
-        <input type="button" value="CONVERT" onclick="convertUnits()">
-      </form>
-
-      <div id="result">
-        <!-- Aquí se mostrarán los resultados de las conversiones -->
-      </div>
-
-
-    </div>
-
-  </div>
 
   <script src="script.js"></script>
+  
+  
+  
 </body>
 
 </html>
