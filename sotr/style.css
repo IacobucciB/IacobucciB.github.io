@@ -1,0 +1,40 @@
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+body {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 0 10px;
+  font: 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #444;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #c9d1d9;
+    background: #0d1117;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #f29a30;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
