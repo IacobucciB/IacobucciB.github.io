@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Style for the image container */
+        figure {
+            display: inline-block;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Style for the images */
+        img {
+            width: 100%;
+            max-width: 300px;
+            /* Adjust the max-width as needed */
+            height: auto;
+        }
+
+        /* Hide all but the first image */
+        figure:not(:first-child) {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Iacobucci B</h1>
+    <h2>Objective</h2>
+    <p>To obtain a position as a software developer in a dynamic and challenging environment where I can utilize
+        my technical and problem-solving skills.</p>
+    <h2>Education</h2>
+    <p>Computer Engineering, Universidad Nacional de La Plata, Argentina, 2019-2023</p>
+    <h2>Skills</h2>
+    <p>Proficient in Java, Python, C++, HTML/CSS, and JavaScript</p>
+    <p>Strong problem-solving and analytical skills</p>
+    <p>Excellent communication and teamwork abilities</p>
+    <h2>References</h2>
+    <p>Available upon request</p>
+
+    <!-- Image Carousel -->
+    <figure>
+        <img src="https://via.placeholder.com/600x300.jpg" alt="Image 1">
+        <figcaption>Image 1</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://via.placeholder.com/600x300.jpg" alt="Image 2">
+        <figcaption>Image 2</figcaption>
+    </figure>
+
+    <figure>
+        <img src="https://via.placeholder.com/600x300.jpg" alt="Image 3">
+        <figcaption>Image 3</figcaption>
+    </figure>
+
+    <div style="overflow-x:auto;">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <th></th>
+                <th>Month</th>
+                <th>Rent</th>
+                <th colspan="2">Utilities</th><!-- This cell will span 2 columns in the row below it -->
+                <th>Groceries</th>
+                <th>Eating Out</th>
+                <th>Entertainment</th>
+            </tr>
+            <tr>
+                <td rowspan="3">Fall</td><!-- this cell will span 3 rows, June, July, & August -->
+                <td>June</td>
+                <td>$1500</td>
+                <td>$100</td><!-- The $100 and $50 cells will be under the Utilities cell-->
+                <td>$50</td>
+                <td>$350</td>
+                <td>$100</td>
+                <td>$50</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>$1500</td>
+                <td>$100</td>
+                <td>$50</td>
+                <td>$350</td>
+                <td>$100</td>
+                <td>$50</td>
+            </tr>
+            <tr>
+                <td>August</td>
+                <td>$1500</td>
+                <td>$100</td>
+                <td>$50</td>
+                <td>$350</td>
+                <td>$100</td>
+                <td>$50</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- JavaScript for Carousel functionality -->
+    <script>
+        // JavaScript to handle image carousel
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentImage = 0;
+            const images = document.querySelectorAll('figure');
+
+            function showImage(index) {
+                images.forEach((img, i) => {
+                    if (i === index) {
+                        img.style.display = 'inline-block';
+                    } else {
+                        img.style.display = 'none';
+                    }
+                });
+            }
+
+            function nextImage() {
+                currentImage = (currentImage + 1) % images.length;
+                showImage(currentImage);
+            }
+
+            setInterval(nextImage, 1000); // Change image every 3 seconds (adjust as needed)
+        });
+    </script>
+
+</body>
+
+</html>
