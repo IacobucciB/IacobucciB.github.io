@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="iso-utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>What is MathML?</title>
+ <style type="text/css">
+<!-- 
+      body { margin-left: 5%; margin-right: 5%; background-color: white; 
+      font-family: Trebuchet, Arial, sans-serif; }
+      h1 {font-size:230% ; text-align:center; }
+      h1,h2,h3,h4 {font-family: Trebuchet, Arial, sans-serif; 
+      color: black; background-color:white; }
+      b { color:black; background-color:white; }
+      caption { text-decoration: underline; margin-top: 1em; }
+      blockquote { color: #101010; background-color:white; font-style:italic; }
+      pre { font-family: Trebuchet, Arial, sans-serif; 
+      color:black; background-color:white; }
+      div.disclaimer {margin-left: -8%; }
+      p.first {text-align:center; color:black; background-color:white;
+      font-size:110%; }
+      p.navigation {margin-top: -5pt; margin-bottom: -5pt; 
+      font-family: Verdana, arial, helvetica, sans-serif; font-size: 70%; }
+      ul { margin-left: 15pt }
+      .date {color: #401; background-color:white; font-weight: bold; }
+      th { background-color: #C0C0C0; font-weight: bold; }
+      address { margin-top: 2em; border-top: thin solid; padding-top: 1em; }
+      -->
+
+
+
+
+
+
+
+</style>
+
+  </head>
+
+<body>
+<h2>Mathematical Markup Language (MathML)</h2>
+<!-- -->
+<!-- What is MathML? -->
+<!-- -->
+
+<h3><a name="WhatisMathML" id="WhatisMathML">What is MathML?</a></h3>
+
+<p>MathML is intended to facilitate the use and re-use of mathematical and
+scientific content on the Web, and for other applications such as computer
+algebra systems, print typesetting, and voice synthesis. MathML can be used
+to encode both the presentation of mathematical notation for high-quality
+visual display, and mathematical content, for applications where the
+semantics plays more of a key role such as scientific software or voice
+synthesis.</p>
+
+<p>MathML is cast as an application of XML. As such, with adequate style
+sheet support, it will ultimately be possible for browsers to natively render
+mathematical expressions. For the immediate future, several vendors offer
+applets and plug-ins which can render MathML in place in a browser.
+Translators and equation editors which can generate HTML pages where the math
+expressions are represented directly in MathML will be available soon.</p>
+
+<h3>Why we are working in this area?</h3>
+
+<p>Although the mark-up language HTML has a large repertoire of tags, it does
+not cater for math. With no means of using HTML tags to mark up mathematical
+expressions, authors have resorted to drastic means. For example, a popular
+method involves inserting images - literally snap shots of equations taken
+from other packages and saved in GIF format - into technical documents which
+have a mathematical or scientific content.</p>
+
+<p>W3C has been working with a number of companies with experience in editing
+and processing math on computers, as well as other specialist organizations.
+This work has culminated in a markup language called MathML, and W3C released
+<a href="http://www.w3.org/pub/WWW/TR/REC-MathML/">MathML 1.0</a> as a
+Recommendation in April 1998. <a
+href="https://www.w3.org/TR/MathML2/">Version 2.0</a> followed in 2003
+and <a href="https://www.w3.org/TR/MathML3/">version 3.0</a> in
+2014.</p>
+
+<p>For more information about MathML and the activities of the W3C Math
+working group, consult the <a href="Activity.html">W3C Math Activity
+Report</a> or the <a href="mathml-faq.html">MathML FAQ</a>, by Stephen
+Buswell et. al. (a wealth of introductory and background information on
+MathML).</p>
+
+<h3>MathML puts math on the Web</h3>
+
+<p>MathML consists of a number of XML tags which can be used to mark up an
+equation in terms of its presentation and also its semantics. MathML attempts
+to capture something of the meaning behind equations rather than
+concentrating entirely on how they are going to be formatted out on the
+screen. This is on the basis that mathematical equations are meaningful to
+many applications without regard as to how they are rendered aurally or
+visually.</p>
+
+<p>XML is closely related to HTML and assumes a very similar, but not
+identical syntax. One distinction is that in XML you cannot omit end tags.
+Furthermore, tags for elements which don't have any content are specially
+marked by a slash before the closing angle bracket.</p>
+
+<p>MathML is a low-level format for describing mathematics as a basis for
+machine to machine communication. MathML is not intended for editing by hand,
+but is for handling by specialized authoring tools such as equation editors,
+or for export to and from other math packages.</p>
+
+<p>MathML is intended to facilitate the use and re-use of mathematical and
+scientific content on the Web, and for other applications such as computer
+algebra systems, print typesetters, and voice synthesizers. MathML can be
+used to encode both mathematical notation, for high-quality visual display,
+and mathematical content, for more semantic applications like scientific
+software, or voice synthesis.</p>
+
+<h3>Simple example of MathML</h3>
+
+<p>This simple example of MathML gives you an idea of how it works. The
+equation in question is:</p>
+
+<p><b>x<sup>2</sup> + 4x + 4 =0</b></p>
+
+<p>and below are two ways that this can be represented, first using
+presentational tags, then using semantic tags. The presentational tags
+generally start with "m" and then use "o" for operator "i" for identifier "n"
+for number, and so on. The "mrow" tags indicate organization into horizontal
+groups.</p>
+
+<pre>&lt;mrow&gt;
+  &lt;mrow&gt;
+        &lt;msup&gt; &lt;mi&gt;x&lt;/mi&gt; &lt;mn&gt;2&lt;/mn&gt; &lt;/msup&gt; &lt;mo&gt;+&lt;/mo&gt;
+            &lt;mrow&gt;
+              &lt;mn&gt;4&lt;/mn&gt;
+              &lt;mo&gt;&amp;InvisibleTimes;&lt;/mo&gt;
+              &lt;mi&gt;x&lt;/mi&gt;
+            &lt;/mrow&gt;
+    &lt;mo&gt;+&lt;/mo&gt;
+    &lt;mn&gt;4&lt;/mn&gt;
+  &lt;/mrow&gt;
+    &lt;mo&gt;=&lt;/mo&gt;
+    &lt;mn&gt;0&lt;/mn&gt;
+&lt;/mrow&gt;
+        </pre>
+
+
+<p>The semantic tags take into account such concepts as "times", "power of"
+  and so on:</p>
+<pre>
+  &lt;apply&gt;
+    &lt;eq/&gt;
+    &lt;apply&gt;
+        &lt;plus/&gt;
+        &lt;apply&gt;
+            &lt;power/&gt;
+            &lt;ci&gt;x&lt;/ci&gt;
+            &lt;cn&gt;2&lt;/cn&gt;
+        &lt;/apply&gt;
+        &lt;apply&gt;
+            &lt;times/&gt;
+            &lt;cn&gt;4&lt;/cn&gt;
+            &lt;ci&gt;x&lt;/ci&gt;
+        &lt;/apply&gt;
+       &lt;cn&gt;4&lt;/cn&gt;
+    &lt;/apply&gt;
+    &lt;cn&gt;0&lt;/cn&gt;
+  &lt;/apply&gt;
+    </pre>
+
+<address>Max Froumentin, March 2002. Currently maintained by <a
+href="mailto:bert@w3.org">Bert Bos</a>. Latest edit
+
+$Date: 2019/05/11 12:09:39 $.</address>
+</body>
+</html>
+
