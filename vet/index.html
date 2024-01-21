@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+        body {
+            background-color: rgb(45, 45, 45);
+            color: white;
+            font-family: sans-serif;
+            /* Set the default text color for the body */
+        }
+
+        .card {
+            background-color: rgb(58, 58, 58);
+            color: white;
+            /* Set the text color for the custom card */
+        }
+
+        .text-success {
+            color: green;
+            /* Set the text color for the custom card */
+        }
+
+        .card-title a {
+            color: white;
+            text-decoration: none;
+            /* Remove the default underline */
+        }
+
+        .card-title a:hover {
+            color: #61dafb;
+            /* Change color on hover */
+            text-decoration: underline;
+            /* Add underline on hover */
+        }
+
+        .object-fit-contain {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        }
+    </style>
+
+    <title>Portfolio</title>
+</head>
+
+<body>
+
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <!-- Navbar content -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Home</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-8 col-lg-9 order-1 order-md-0 custom-column">
+                <!-- Content for the wider column (80%) goes here -->
+
+                <div class="card ms-5 me-5 mx-auto">
+                    <div class="card-body">
+                        <h2 class="card-title">Card link</h2>
+                        <p class="card-text">This is a wider card with supporting text below as a natural
+                            lead-in to additional content. This content is a little bit longer.</p>
+
+
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Nullam facilisis arcu vel mollis finibus. Nunc facilisis
+                            vel nisl lacinia cursus. Cras suscipit augue sed volutpat
+                            tincidunt. Aenean dictum tincidunt urna, quis eleifend
+                            quam mattis eu. Integer sollicitudin, nisl faucibus aliquam
+                            ullamcorper, metus sapien scelerisque lorem, at ornare dui
+                            orci non orci. Integer tempus consectetur metus, vitae
+                            blandit nibh aliquam nec. Pellentesque vestibulum arcu eget
+                            ante sollicitudin, id accumsan dui molestie. Suspendisse
+                            vehicula semper dui id congue. Suspendisse sed velit sit
+                            amet velit luctus varius. Ut condimentum tincidunt consequat.
+                            Sed eu ligula non magna scelerisque auctor.
+                        </p>
+
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <video src="./vet-date.webm" class="embed-responsive-item object-fit-contain" autoplay></video>
+                        </div>
+
+                        <p>
+                            Maecenas feugiat iaculis imperdiet. Duis vitae pellentesque
+                            nunc, eget elementum metus. Nulla sollicitudin bibendum nibh,
+                            sit amet semper tortor. Nunc rhoncus non arcu in scelerisque.
+                            Donec magna mauris, congue ac dignissim rutrum, tincidunt
+                            quis leo. Maecenas dictum orci in magna iaculis, in elementum
+                            felis viverra. Aenean sit amet sapien odio. Donec molestie
+                            est et nisl mattis dictum. Nullam at nibh aliquet, tincidunt
+                            lorem et, facilisis enim. Praesent id felis sit amet quam
+                            dignissim volutpat. Nam nec cursus mi, quis tincidunt justo.
+                        </p>
+
+                        <b>Sed efficitur laoreet nisl,</b><br>
+                        <i>ac faucibus velit hendrerit sit amet.</i><br>
+                        <u>Phasellus ac orci eget nisi porta accumsan a eget ex.</u><br>
+                        <em>Nam lacinia dolor at mi tristique rhoncus.</em><br>
+                        <strong>Maecenas nisl est, rhoncus id cursus non, tempor a neque.</strong>
+                        <hr>
+                        Phasellus venenatis dapibus laoreet. Sed in lacus a augue rutrum ultricies.
+                        Donec eget lacinia elit. Suspendisse commodo justo at lorem molestie, vitae
+                        tempus enim laoreet.
+
+
+
+                        <p class="card-text text-success"><small>Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-3 col-lg-2 custom-column d-none d-md-block">
+                <!-- Content for the thinner column (20%) goes here -->
+
+                <div class="card me-5 mb-5">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
