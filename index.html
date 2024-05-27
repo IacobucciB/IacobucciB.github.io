@@ -1,28 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Académico</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <nav>
-            <ul>
+            <ul id="links">
                 <li><a href="#">Inicio</a></li>
+                <li><a href="#">Github</a></li>
                 <li><a href="#">Sobre Mí</a></li>
-                <li><a href="#">Proyectos</a></li>
+                <li><a href="#">CV</a></li>
             </ul>
         </nav>
     </header>
-    
+    <div class="sidenav">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+      </div>
     <main>
         <section>
-            <h1>Bienvenido a Mi Portafolio</h1>
-            <p>Ingeniero en formación apasionado por la programación y las matemáticas.</p>
+            <h1 id="title">Bienvenido a Mi Portafolio</h1>
+            <p>Ingeniero en formación apasionado por la programación.</p>
         </section>
-        
+
+        <section>
+            <h1 id="title">Proyectos</h1>
+            <article>
+                <p><time datetime="2023-01-01">Enero 2023</time></p>
+                <p><a href="#">Proyecto 1</a></p>
+            </article>
+            <article>
+                <p><time datetime="2023-02-01">Febrero 2023</time></p>
+                <p><a href="#">Proyecto 2</a></p>
+            </article>
+            <article>
+                <p><time datetime="2023-03-01">Marzo 2023</time></p>
+                <p><a href="#">Proyecto 3</a></p>
+            </article>
+        </section>
     </main>
 
     <footer>
@@ -31,4 +54,5 @@
 
     <script src="./script.js"></script>
 </body>
+
 </html>

@@ -8,15 +8,18 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-		* {
-			color-scheme: only dark;
-		}
+        * {
+            color-scheme: only dark;
+        }
+
         body {
             font-size: 18px;
         }
+
         .image {
             max-width: 30%;
         }
+
         .full-size {
             max-width: 100%;
         }
@@ -91,7 +94,10 @@
     <p>La tensión de salida del Microcontrolador se obtuvo mirando la figura extraída de la hoja de datos
         correspondiente al MCU “Voltajes de salida en pines de entrada/salida y Corriente (Vcc = 5V)”. Se tomó un valor
         aproximado de 4.75 V ya que la corriente es de 10mA y suponiendo una temperatura ambiente de 25°C.</p>
-    <img id="image14" src="./images/image14.png" class="image">
+    <figure>
+        <img id="image14" src="./images/image14.png" class="image">
+        <fIGcaption>VOH vs IOH</fIGcaption>
+    </figure>
     <button onclick="toggleFullSize('image14')">Full Size</button>
     <br>
     <img id="image18" src="./images/image18.png" class="image">
@@ -501,7 +507,7 @@ int main (void)
                         image.classList.add("full-size");
                     }
                 }
-                
-                </script>
+
+            </script>
 
 </html>
