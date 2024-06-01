@@ -84,8 +84,10 @@
     </figure>
     <br>
 
-    <img id="image18" src="./images/image18.png" class="image" style="width: 100%; aspect-ratio: 1999/1073;">
-
+    <figure>
+        <img id="image18" src="./images/image18.png" class="image" style="width: 100%; aspect-ratio: 1999/1073;">
+        <figcaption>PULL-UP</figcaption>
+    </figure>
     <p>Sabiendo por ley de Ohm que \( R_{\text{LED}} = \frac{V_{\text{OH}} - V_{\text{LED}}}{I_{\text{OH}}} \),
         calculamos:</p>
     <p>\[ R_{\text{rojo}} = \frac{4.75\text{V} - 1.8\text{V}}{10\text{mA}} = 295\Omega \]</p>
@@ -100,7 +102,10 @@
     <p>Además, sabemos que la corriente total que circula por el puerto B en caso de que los 8 LEDS estén encendidos al
         mismo tiempo sería de 80mA, valor que es menor a los límites establecidos (100mA y 150mA) especificados en la
         sección 28.2 “DC Characteristics” de la hoja de datos.</p>
-    <img src="./images/image17.png" style="width: 100%; aspect-ratio: 195/154;">
+    <figure>
+        <img src="./images/image17.png" style="width: 100%; aspect-ratio: 195/154;">
+        <figcaption>LEDs</figcaption>
+    </figure>
     <p>Los valores de las resistencias nominales serían para:</p>
     <ul>
         <li>Led rojo : 330</li>
@@ -110,9 +115,10 @@
     </ul>
     <p>De esta forma nos aseguramos que los valores de corriente estén por debajo de los 10mA, siendo resistencias lo
         suficientemente cercanas a las ideales calculadas previamente.</p>
-
-    <img src="./images/image20.png" style="width: 100%; aspect-ratio: 344/159;">
-
+    <figure>
+        <img src="./images/image20.png" style="width: 100%; aspect-ratio: 344/159;">
+        <figcaption>Resistores</figcaption>
+    </figure>
     <h2>2. Conexión del Pulsador</h2>
     <h3>2.1 Enunciado</h3>
     <p>Se desea conectar un pulsador a una entrada digital del MCU y detectar cuando el usuario presiona y suelta el
@@ -133,9 +139,10 @@
             a GND y se utiliza una resistencia pull-up, como se ve en la figura 3. En este caso, cuando el pulsador no
             esté presionado se tiene un valor alto, y un valor bajo cuando lo esté.</li>
     </ol>
-
-    <img src="./images/image15.png" style="width: 100%; aspect-ratio: 43/30;">
-
+    <figure>
+        <img src="./images/image15.png" style="width: 100%; aspect-ratio: 43/30;">
+        <figcaption>Pull-up Interno</figcaption>
+    </figure>
     <p>En la práctica usaremos la configuración con la resistencia pull-up, ya que el microcontrolador ATmega328P cuenta
         con este tipo de resistencias integradas. Por lo que se debe conectar el pulsador a GND y activar el pull-up
         interno, y así evitamos tener que añadir una resistencia adicional.</p>
@@ -145,7 +152,10 @@
         valor alto y bajo. Esta variación puede afectar en la ejecución correcta del programa ya que devuelve valores
         erróneos a los esperados.</p>
 
-    <img src="./images/image22.png" style="width: 100%; aspect-ratio: 344/161;">
+    <figure>
+        <img src="./images/image22.png" style="width: 100%; aspect-ratio: 344/161;">
+        <figcaption>Rebote</figcaption>
+    </figure>
 
     <p>Para resolver este problema, se pueden usar tanto técnicas de hardware como de software. Aquí utilizaremos una
         técnica por software que consiste en buscar N lecturas secuenciales estables del interruptor, donde N es un
@@ -153,9 +163,10 @@
         transición y luego comienza a incrementar o disminuir un contador, releyendo cada vez la entrada, hasta que N
         alcanza un conteo presumiblemente seguro y sin rebotes. Si el estado no es estable, el contador se reinicia a su
         valor inicial.</p>
-
-    <img src="./images/image12.png" style="width: 100%; aspect-ratio: 344/83;">
-
+    <figure>
+        <img src="./images/image12.png" style="width: 100%; aspect-ratio: 344/83;">
+        <figcaption>Polling</figcaption>
+    </figure>
     <p>Esto último en pseudocódigo quedaría:</p>
 
     <div style="overflow-x: auto;">
