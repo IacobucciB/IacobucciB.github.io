@@ -32,6 +32,11 @@ h1 {
     text-align: center;
 }
 
+a {
+    color: #272627;
+    text-decoration: none;
+}
+
 .blob {
     background: #575068;
     border-radius: 50%;
