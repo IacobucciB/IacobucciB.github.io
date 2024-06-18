@@ -33,39 +33,9 @@ h1 {
 }
 
 a {
-    color: #272627;
     text-decoration: none;
 }
 
-.blob {
-    background: #575068;
-    border-radius: 50%;
-    margin: 1em;
-    height: 2em;
-    width: 2em;
-
-    position: fixed;
-    bottom: 0;
-    right: 0;
-
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-    transform: scale(1);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-    }
-
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 1em rgba(0, 0, 0, 0);
-    }
-
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    }
+a:hover {
+    text-decoration: underline;
 }
