@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-06-28 vie. 15:03 -->
+<!-- 2024-06-29 s�b. 14:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CDyM-TP1</title>
+<title>CDyM - TP1</title>
 <meta name="author" content="IacobucciB" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -229,224 +229,248 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">CDyM-TP1</h1>
+<h1 class="title">CDyM - TP1</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org77be47b">1. Control de periféricos LED externos con puertos de entrada/salida</a></li>
-<li><a href="#org463dceb">2. Conexión de los LEDs</a>
+<li><a href="#org07a1d33">1. Atmega328p - C - Control de periféricos LED externos con puertos de entrada/salida</a>
 <ul>
-<li><a href="#org0545b89">2.1. Enunciado</a></li>
-<li><a href="#org085332d">2.2. Interpretación</a></li>
-<li><a href="#org32cf24d">2.3. Resolución</a></li>
+<li><a href="#orgfc58548">1.1. Conexión de los LEDs</a>
+<ul>
+<li><a href="#org843dd65">1.1.1. Enunciado</a></li>
+<li><a href="#org2cf016e">1.1.2. Interpretación</a></li>
+<li><a href="#orge0d309a">1.1.3. Resolución</a></li>
 </ul>
 </li>
-<li><a href="#org247e9c9">3. Conexión del Pulsador</a>
+<li><a href="#org70283ce">1.2. Conexión del Pulsador</a>
 <ul>
-<li><a href="#orgcdbfea9">3.1. Enunciado</a></li>
-<li><a href="#org10356a5">3.2. Interpretación</a></li>
-<li><a href="#org70d2fed">3.3. Resolución</a></li>
+<li><a href="#org04045e1">1.2.1. Enunciado</a></li>
+<li><a href="#org89702fe">1.2.2. Interpretación</a></li>
+<li><a href="#org6843358">1.2.3. Resolución</a></li>
 </ul>
 </li>
-<li><a href="#org685e426">4. Secuencia de Encendido</a>
+<li><a href="#org23e3ff8">1.3. Secuencia de Encendido</a>
 <ul>
-<li><a href="#orgb0b94ca">4.1. Enunciado</a></li>
-<li><a href="#orgc477c1a">4.2. Interpretación</a></li>
-<li><a href="#org2c94c43">4.3. Resolución</a></li>
+<li><a href="#org4d401ee">1.3.1. Enunciado</a></li>
+<li><a href="#org78bb0d5">1.3.2. Interpretación</a></li>
+<li><a href="#orgb3ba5ed">1.3.3. Resolución</a></li>
+</ul>
+</li>
+<li><a href="#org9d01b30">1.4. Conclusiones</a>
+<ul>
+<li><a href="#org79f1dd3">1.4.1. Enunciado</a></li>
+<li><a href="#org4f5596c">1.4.2. Resolución</a></li>
+</ul>
+</li>
+<li><a href="#org149f950">1.5. Bibliografía</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org77be47b" class="outline-2">
-<h2 id="org77be47b"><span class="section-number-2">1.</span> Control de periféricos LED externos con puertos de entrada/salida</h2>
+<div id="outline-container-org07a1d33" class="outline-2">
+<h2 id="org07a1d33"><span class="section-number-2">1.</span> Atmega328p - C - Control de periféricos LED externos con puertos de entrada/salida</h2>
 <div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgfc58548" class="outline-3">
+<h3 id="orgfc58548"><span class="section-number-3">1.1.</span> Conexión de los LEDs</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org843dd65" class="outline-4">
+<h4 id="org843dd65"><span class="section-number-4">1.1.1.</span> Enunciado</h4>
+<div class="outline-text-4" id="text-1-1-1">
 <p>
-<a href="https://github.com/IacobucciB/CDyM-TP1-2024-G1-LEDs">Link al Repositorio</a><br />
+Se desea conectar 8 diodos LED de diferentes colores al puerto B del MCU y encenderlos con una corriente de 10mA en cada uno.
+Realice el esquema eléctrico de la conexión en Proteus.
+Calcule la resistencia serie para cada color teniendo en cuenta la caída de tensión VLED (rojo=1.8V, verde=2.2V amarillo=2.0V azul=3.0V).
+Verifique que la corriente por cada terminal del MCU no supere la capacidad de corriente de cada salida y de todas las salidas del mismo puerto en funcionamiento simultáneo. 
 </p>
 </div>
 </div>
 
-<div id="outline-container-org463dceb" class="outline-2">
-<h2 id="org463dceb"><span class="section-number-2">2.</span> Conexión de los LEDs</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org0545b89" class="outline-3">
-<h3 id="org0545b89"><span class="section-number-3">2.1.</span> Enunciado</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org2cf016e" class="outline-4">
+<h4 id="org2cf016e"><span class="section-number-4">1.1.2.</span> Interpretación</h4>
+<div class="outline-text-4" id="text-1-1-2">
 <p>
-Se desea conectar 8 diodos LED de diferentes colores al puerto B del MCU y encenderlos con una corriente de 10mA en cada uno. Realice el esquema eléctrico de la conexión en Proteus. Calcule la resistencia serie para cada color teniendo en cuenta la caída de tensión VLED (rojo=1.8V, verde=2.2V, amarillo=2.0V, azul=3.0V). Verifique que la corriente por cada terminal del MCU no supere la capacidad de corriente de cada salida y de todas las salidas del mismo puerto en funcionamiento simultáneo.<br />
+Dado el microcontrolador ATmega328P, se debe conectar 8 diodos LED de 4 diferentes colores (rojo, verde, amarillo y azul) al su puerto B.
+Para esto se calcularán las resistencias necesarias, teniendo como dato la corriente que circula por cada uno de los LEDS (10mA) y la caída de tensión de cada que varía dependiendo el color.
+Teniendo en cuenta la tensión de salida del microcontrolador, es crucial asegurar que la corriente a través de cada terminal no exceda su capacidad máxima de corriente de salida, así como también verificar que la suma de las corrientes en todas las salidas del puerto B no supere la capacidad máxima total.
+Por último, se debe realizar un esquema eléctrico en Proteus de la conexión pedida utilizando los LEDS y las resistencias calculadas.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org085332d" class="outline-3">
-<h3 id="org085332d"><span class="section-number-3">2.2.</span> Interpretación</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orge0d309a" class="outline-4">
+<h4 id="orge0d309a"><span class="section-number-4">1.1.3.</span> Resolución</h4>
+<div class="outline-text-4" id="text-1-1-3">
 <p>
-Dado el microcontrolador ATmega328P, se debe conectar 8 diodos LED de 4 diferentes colores (rojo, verde, amarillo y azul) al su puerto B. Para esto se calcularán las resistencias necesarias, teniendo como dato la corriente que circula por cada uno de los LEDS (10mA) y la caída de tensión de cada que varía dependiendo el color. Teniendo en cuenta la tensión de salida del microcontrolador, es crucial asegurar que la corriente a través de cada terminal del no exceda su capacidad máxima de corriente de salida, así como también verificar que la suma de las corrientes en todas las salidas del puerto B no supere la capacidad máxima total. Por último, se debe realizar un esquema eléctrico en Proteus de la conexión pedida utilizando los LEDS y las resistencias calculadas.<br />
-</p>
-</div>
-</div>
-
-<div id="outline-container-org32cf24d" class="outline-3">
-<h3 id="org32cf24d"><span class="section-number-3">2.3.</span> Resolución</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-Para el cálculo de cada una de las resistencias se utilizaron los siguientes datos:<br />
+Para el cálculo de cada una de las resistencias se utilizaron los siguientes datos:
 </p>
 
 <ul class="org-ul">
-<li>Caída de Tensión de cada LED<br />
+<li>Caída de Tensión de cada LED
 <ul class="org-ul">
-<li>Rojo = 1.8V<br /></li>
-<li>Verde = 2.2V<br /></li>
-<li>Amarillo = 2.0V<br /></li>
-<li>Azul = 3.0V<br /></li>
+<li>Rojo = 1.8V</li>
+<li>Verde = 2.2V</li>
+<li>Amarillo = 2.0V</li>
+<li>Azul = 3.0V</li>
 </ul></li>
-<li>Intensidad de corriente nominal (corriente que circula por cada LED), 10mA.<br /></li>
-<li>Tensión de salida del Microcontrolador (4.75 V).<br /></li>
+<li>Intensidad de corriente nominal (corriente que circula por cada LED), 10mA.</li>
+<li>Tensión de salida del Microcontrolador (4.75 V).</li>
 </ul>
 
 <p>
-La tensión de salida del Microcontrolador se obtuvo mirando la figura extraída de la hoja de datos correspondiente al MCU “Voltajes de salida en pines de entrada/salida y Corriente (Vcc = 5V)”. Se tomó un valor aproximado de 4.75 V ya que la corriente es de 10mA y suponiendo una temperatura ambiente de 25°C.<br />
+La tensión de salida del Microcontrolador se obtuvo mirando la figura extraída de la hoja de datos correspondiente al MCU “Voltajes de salida en pines de entrada/salida y Corriente (Vcc = 5V)”.
+Se tomó un valor aproximado de 4.75 V ya que la corriente es de 10mA y suponiendo una temperatura ambiente de 25°C.
+</p>
+
+
+
+<div id="org7a18321" class="figure">
+<p><img src="./images/image14.png" alt="image14.png" />    
+</p>
+<p><span class="figure-number">Figure 1: </span>VOH vs IOH</p>
+</div>
+
+
+
+<div id="org63f8661" class="figure">
+<p><img src="./images/image18.png" alt="image18.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>PULL-UP</p>
+</div>
+
+
+<p>
+Sabiendo por ley de Ohm que \( R_{\text{LED}} = \frac{V_{\text{OH}} - V_{\text{LED}}}{I_{\text{OH}}} \),calculamos:
 </p>
 
 <p>
-<img src="./images/image14.png" alt="image14.png" /><br />
-VOH vs IOH<br />
+\[ R_{\text{rojo}} = \frac{4.75\text{V} - 1.8\text{V}}{10\text{mA}} = 295\Omega \]
+\[ R_{\text{verde}} = \frac{4.75\text{V} - 2.2\text{V}}{10\text{mA}} = 255\Omega \]
+\[ R_{\text{amarillo}} = \frac{4.75\text{V} - 2.0\text{V}}{10\text{mA}} = 275\Omega \]
+\[ R_{\text{azul}} = \frac{4.75\text{V} - 3.0\text{V}}{10\text{mA}} = 175\Omega \]
 </p>
 
 <p>
-<img src="./images/image18.png" alt="image18.png" /><br />
-PULL-UP<br />
+Se debe verificar que la corriente por cada terminal del MCU no supere la capacidad de corriente de cada salida.
+Para ello, vemos que en la hoja de datos del microcontrolador ATmega328p, más precisamente de la sección 28.1 “Absolute Maximum Ratings”, nos dice que la corriente máxima de salida individual es de 40mA, cuyo valor es menor a los 10mA utilizados.
+Además, sabemos que la corriente total que circula por el puerto B en caso de que los 8 LEDS estén encendidos al mismo tiempo sería de 80mA, valor que es menor a los límites establecidos (100mA y 150mA) especificados en la sección 28.2 “DC Characteristics” de la hoja de datos.
 </p>
 
-<p>
-Sabiendo por ley de Ohm que \( R_{\text{LED}} = \frac{V_{\text{OH}} - V_{\text{LED}}}{I_{\text{OH}}} \), calculamos:<br />
+
+<div id="org4e1d55c" class="figure">
+<p><img src="./images/image17.png" alt="image17.png" />
 </p>
+<p><span class="figure-number">Figure 3: </span>LEDs</p>
+</div>
 
 <p>
-\[ R_{\text{rojo}} = \frac{4.75\text{V} - 1.8\text{V}}{10\text{mA}} = 295\Omega \]<br />
-</p>
-
-<p>
-\[ R_{\text{verde}} = \frac{4.75\text{V} - 2.2\text{V}}{10\text{mA}} = 255\Omega \]<br />
-</p>
-
-<p>
-\[ R_{\text{amarillo}} = \frac{4.75\text{V} - 2.0\text{V}}{10\text{mA}} = 275\Omega \]<br />
-</p>
-
-<p>
-\[ R_{\text{azul}} = \frac{4.75\text{V} - 3.0\text{V}}{10\text{mA}} = 175\Omega \]<br />
-</p>
-
-<p>
-Se debe verificar que la corriente por cada terminal del MCU no supere la capacidad de corriente de cada salida. Para ello, vemos que en la hoja de datos del microcontrolador ATmega328p, más precisamente de la sección 28.1 “Absolute Maximum Ratings”, nos dice que la corriente máxima de salida individual es de 40mA, cuyo valor es menor a los 10mA utilizados.<br />
-</p>
-
-<p>
-Además, sabemos que la corriente total que circula por el puerto B en caso de que los 8 LEDS estén encendidos al mismo tiempo sería de 80mA, valor que es menor a los límites establecidos (100mA y 150mA) especificados en la sección 28.2 “DC Characteristics” de la hoja de datos.<br />
-</p>
-
-<p>
-<img src="./images/image17.png" alt="image17.png" /><br />
-LEDs<br />
-</p>
-
-<p>
-Los valores de las resistencias nominales serían para:<br />
+Los valores de las resistencias nominales serían para:
 </p>
 
 <ul class="org-ul">
-<li>Led rojo : 330<br /></li>
-<li>Led verde: 270<br /></li>
-<li>Led amarillo: 330<br /></li>
-<li>Led azul: 180<br /></li>
+<li>Led rojo : 330</li>
+<li>Led verde: 270</li>
+<li>Led amarillo: 330</li>
+<li>Led azul: 180</li>
 </ul>
 
 <p>
-De esta forma nos aseguramos que los valores de corriente estén por debajo de los 10mA, siendo resistencias lo suficientemente cercanas a las ideales calculadas previamente.<br />
+De esta forma nos aseguramos que los valores de corriente estén por debajo de los 10mA, siendo resistencias lo suficientemente cercanas a las ideales calculadas previamente.
 </p>
 
-<p>
-<img src="./images/image20.png" alt="image20.png" /><br />
-Resistores<br />
-</p>
-</div>
-</div>
-</div>
 
-<div id="outline-container-org247e9c9" class="outline-2">
-<h2 id="org247e9c9"><span class="section-number-2">3.</span> Conexión del Pulsador</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-orgcdbfea9" class="outline-3">
-<h3 id="orgcdbfea9"><span class="section-number-3">3.1.</span> Enunciado</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-Se desea conectar un pulsador a una entrada digital del MCU y detectar cuando el usuario presiona y suelta el pulsador. Muestre el esquema de conexión y determine la configuración del MCU que corresponda. Investigue sobre el efecto de rebote que producen los pulsadores e implemente un método para eliminar este efecto en su algoritmo de detección (puede encontrar información útil en la bibliografía).<br />
+<div id="orga72f34b" class="figure">
+<p><img src="./images/image20.png" alt="image20.png" /> 
 </p>
+<p><span class="figure-number">Figure 4: </span>Resistores</p>
+</div>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org10356a5" class="outline-3">
-<h3 id="org10356a5"><span class="section-number-3">3.2.</span> Interpretación</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-org70283ce" class="outline-3">
+<h3 id="org70283ce"><span class="section-number-3">1.2.</span> Conexión del Pulsador</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org04045e1" class="outline-4">
+<h4 id="org04045e1"><span class="section-number-4">1.2.1.</span> Enunciado</h4>
+<div class="outline-text-4" id="text-1-2-1">
 <p>
-En este ejercicio se debe mostrar el esquema de conexión usado para conectar un pulsador al microcontrolador. Se debe desarrollar un código de programa que detecte cuando se oprime y se suelta el pulsador, como así también un método para eliminar el efecto rebote, que se produce al hacer falsos contactos en el interruptor.<br />
+Se desea conectar un pulsador a una entrada digital del MCU y detectar cuando el usuario presiona y suelta el pulsador.
+Muestre el esquema de conexión y determine la configuración del MCU que corresponda. Investigue sobre el efecto de rebote que producen los pulsadores e implemente un método para eliminar este efecto en su algoritmo de detección (puede encontrar información útil en la bibliografía).
 </p>
 </div>
 </div>
 
-<div id="outline-container-org70d2fed" class="outline-3">
-<h3 id="org70d2fed"><span class="section-number-3">3.3.</span> Resolución</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-org89702fe" class="outline-4">
+<h4 id="org89702fe"><span class="section-number-4">1.2.2.</span> Interpretación</h4>
+<div class="outline-text-4" id="text-1-2-2">
 <p>
-Existen dos maneras de conectar un pulsador a una entrada del MCU:<br />
+En este ejercicio se debe mostrar el esquema de conexión usado para conectar un pulsador al microcontrolador.
+Se debe desarrollar un código de programa que detecte cuando se oprime y se suelta el pulsador, como así también un método para eliminar el efecto rebote, que se produce al hacer falsos contactos en el interruptor.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6843358" class="outline-4">
+<h4 id="org6843358"><span class="section-number-4">1.2.3.</span> Resolución</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+Existen dos maneras de conectar un pulsador a una entrada del MCU:
 </p>
 
-<ol class="org-ol">
-<li>La primera es conectar el pulsador a Vcc y una resistencia pull-down en la otra parte, es decir como se ve en la figura 2. Lo que hace esto es dar un valor bajo en caso que el pulsador esté sin presionar y un valor alto en caso contrario.<br /></li>
-<li>La segunda forma de conectar al pulsador es inversa a la mencionada anteriormente, el pulsador es conectado a GND y se utiliza una resistencia pull-up, como se ve en la figura 3. En este caso, cuando el pulsador no esté presionado se tiene un valor alto, y un valor bajo cuando lo esté.<br /></li>
-</ol>
+<ul class="org-ul">
+<li>La primera es conectar el pulsador a Vcc y una resistencia pull-down en la otra parte, es decir como se ve en la figura.
+Lo que hace esto es dar un valor bajo en caso que el pulsador esté sin presionar y un valor alto en caso contrario.</li>
+<li>La segunda forma de conectar al pulsador es inversa a la mencionada anteriormente, el pulsador es conectadoa GND y se utiliza una resistencia pull-up, como se ve en la figura.
+En este caso, cuando el pulsador no esté presionado se tiene un valor alto, y un valor bajo cuando lo esté.</li>
+</ul>
+
+
+
+<div id="orge3dcec9" class="figure">
+<p><img src="./images/image15.png" alt="image15.png" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Pull-up Interno</p>
+</div>
 
 <p>
-<img src="./images/image15.png" alt="image15.png" /><br />
-Pull-up Interno<br />
+En la práctica usaremos la configuración con la resistencia pull-up, ya que el microcontrolador ATmega328P cuenta con este tipo de resistencias integradas.
+Por lo que se debe conectar el pulsador a GND y activar el pull-up interno, y así evitamos tener que añadir una resistencia adicional.
+Para conectar el pulsador al microcontrolador usamos el pin 0 del puerto C como entrada.
+Cuando se conecta un pulsador puede producirse lo que se conoce como efecto rebote.
+Lo que hace este efecto es que cuando se presiona o suelta el pulsador se produce una variación en la señal en la que alterna entre el valor alto y bajo.
+Esta variación puede afectar en la ejecución correcta del programa ya que devuelve valores erróneos a los esperados.
 </p>
 
-<p>
-En la práctica usaremos la configuración con la resistencia pull-up, ya que el microcontrolador ATmega328P cuenta con este tipo de resistencias integradas. Por lo que se debe conectar el pulsador a GND y activar el pull-up interno, y así evitamos tener que añadir una resistencia adicional.<br />
+
+<div id="orgb73a83b" class="figure">
+<p><img src="./images/image22.png" alt="image22.png" />    
 </p>
+<p><span class="figure-number">Figure 6: </span>Rebote</p>
+</div>
 
 <p>
-Para conectar el pulsador al microcontrolador usamos el pin 0 del puerto C como entrada.<br />
+Para resolver este problema, se pueden usar tanto técnicas de hardware como de software.
+Aquí utilizaremos una técnica por software que consiste en buscar N lecturas secuenciales estables del interruptor, donde N es un número que va desde 1 (sin ningún rebote) hasta aparentemente infinito.
+Generalmente, el código detecta una transición y luego comienza a incrementar o disminuir un contador, releyendo cada vez la entrada, hasta que N alcanza un conteo presumiblemente seguro y sin rebotes.
+Si el estado no es estable, el contador se reinicia a su valor inicial.
 </p>
 
-<p>
-Cuando se conecta un pulsador puede producirse lo que se conoce como efecto rebote. Lo que hace este efecto es que cuando se presiona o suelta el pulsador se produce una variación en la señal en la que alterna entre el valor alto y bajo. Esta variación puede afectar en la ejecución correcta del programa ya que devuelve valores erróneos a los esperados.<br />
+
+
+<div id="orgc195563" class="figure">
+<p><img src="./images/image12.png" alt="image12.png" />
 </p>
+<p><span class="figure-number">Figure 7: </span>Polling</p>
+</div>
 
 <p>
-<img src="./images/image22.png" alt="image22.png" /><br />
-Rebote<br />
-</p>
-
-<p>
-Para resolver este problema, se pueden usar tanto técnicas de hardware como de software. Aquí utilizaremos una técnica por software que consiste en buscar N lecturas secuenciales estables del interruptor, donde N es un número que va desde 1 (sin ningún rebote) hasta aparentemente infinito. Generalmente, el código detecta una transición y luego comienza a incrementar o disminuir un contador, releyendo cada vez la entrada, hasta que N alcanza un conteo presumiblemente seguro y sin rebotes. Si el estado no es estable, el contador se reinicia a su valor inicial.<br />
-</p>
-
-<p>
-<img src="./images/image12.png" alt="image12.png" /><br />
-Polling<br />
-</p>
-
-<p>
-Esto último en pseudocódigo quedaría:<br />
+Esto último en pseudocódigo quedaría:
 </p>
 
 <pre class="example">
@@ -470,78 +494,186 @@ FIN FUNCIÓN
 </div>
 </div>
 
-<div id="outline-container-org685e426" class="outline-2">
-<h2 id="org685e426"><span class="section-number-2">4.</span> Secuencia de Encendido</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org23e3ff8" class="outline-3">
+<h3 id="org23e3ff8"><span class="section-number-3">1.3.</span> Secuencia de Encendido</h3>
+<div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-orgb0b94ca" class="outline-3">
-<h3 id="orgb0b94ca"><span class="section-number-3">4.1.</span> Enunciado</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-org4d401ee" class="outline-4">
+<h4 id="org4d401ee"><span class="section-number-4">1.3.1.</span> Enunciado</h4>
+<div class="outline-text-4" id="text-1-3-1">
 <p>
-Realice el programa para que el MCU encienda los LEDs del puerto B con la siguiente secuencia de encendido repetitiva: b0 y b7 – b1 y b6 – b2 y b5 – b3 y b4. Luego, cuando el usuario presione y suelte el pulsador debe cambiar a la secuencia: b7-b6-b5-b4-b3-b2-b1-b0. Si presiona y suelta nuevamente vuelve a la secuencia original y así sucesivamente. Dibuje el diagrama de flujo y el esquema de conexión completo en Proteus.<br />
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgc477c1a" class="outline-3">
-<h3 id="orgc477c1a"><span class="section-number-3">4.2.</span> Interpretación</h3>
-<div class="outline-text-3" id="text-4-2">
-<p>
-Este ejercicio busca escribir un programa que permita realizar secuencias de encendido de LEDs según se indica. El pulsador debe cambiar la secuencia de encendido. Para desarrollar el ejercicio se tendrá en cuenta la configuración previa de los LEDS en puerto B y del pulsador en el puerto C.<br />
+Realice el programa para que el MCU encienda los LEDs del puerto B con la siguiente secuencia de encendido repetitiva: b0 y b7 – b1 y b6 – b2 y b5 – b3 y b4.
+Luego, cuando el usuario presione y suelte el pulsador debe cambiar a la secuencia: b7-b6-b5-b4-b3-b2-b1-b0.
+Si presiona y suelta nuevamente vuelve a la secuencia original y así sucesivamente.
+Elija un retardo adecuado para la visualización en el simulador. Justifique.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2c94c43" class="outline-3">
-<h3 id="org2c94c43"><span class="section-number-3">4.3.</span> Resolución</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-org78bb0d5" class="outline-4">
+<h4 id="org78bb0d5"><span class="section-number-4">1.3.2.</span> Interpretación</h4>
+<div class="outline-text-4" id="text-1-3-2">
 <p>
-Para el desarrollo del código primero se debe considerar la inicialización de los puertos de entrada y salida, y luego la implementación de la secuencia deseada.<br />
+Se debe realizar un programa que encienda LEDS conectados al puerto B variando entre dos secuencias según corresponda.
+Estas secuencias deben ir cambiando entre sí a medida que el usuario aprieta y suelta un pulsador.
+Se debe elegir un retardo que permita al usuario poder visualizar el encendido de los LEDS.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb3ba5ed" class="outline-4">
+<h4 id="orgb3ba5ed"><span class="section-number-4">1.3.3.</span> Resolución</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+Para la resolución de este problema primero debemos configurar el puerto B como salida, poniendo todos los bits del registro de este puerto en “1”.
+Además usaremos la configuración del problema 2, donde se utiliza el pin 0 del puerto C como entrada para conectar el pulsador.
+Luego hay dos secuencias de encendido de LEDS que van alternando en caso de que se presione y se deje de presionar el pulsador:
+</p>
+
+<ul class="org-ul">
+<li>De afuera hacia adentro (b0 y b7 – b1 y b6 – b2 y b5 – b3 y b4):</li>
+</ul>
+
+
+<div id="orge0b6196" class="figure">
+<p><img src="./images/image16.png" alt="image16.png" />
+</p>
+<p><span class="figure-number">Figure 8: </span>De afuera hacia adentro</p>
+</div>
+
+<p>
+En este caso se observa que los LEDS 0 a 3 (b0, b1, b2, b3) deben encenderse rotando hacia la izquierda, y los LEDS restantes (b4, b5, b6, b7) se prenden rotando hacia la derecha, hasta llegar al fin de la secuencia en donde vuelven a empezar.
+</p>
+
+<ul class="org-ul">
+<li>Orden descendente (b7-b6-b5-b4-b3-b2-b1-b0):</li>
+</ul>
+
+<div id="org7666a68" class="figure">
+<p><img src="./images/image19.png" alt="image19.png" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Orden descendente</p>
+</div>
+
+<p>
+Esta secuencia es en dirección descendente, es decir los LEDS se encienden de b7 a b0.            
 </p>
 
 <p>
-La secuencia deseada en el enunciado tiene dos partes, la primera en la cual se deben prender dos LEDs a la vez en el orden especificado, y la segunda parte que consiste en prender un solo LED desde la posición 7 a la 0.<br />
-</p>
-
-<p>
-Diagrama de flujo:<br />
-</p>
-
-<p>
-<img src="./images/image10.png" alt="image10.png" /><br />
-Diagrama de Flujo<br />
-</p>
-
-<p>
-Para llevar a cabo el desarrollo del código en C se utiliza la estructura de datos estados, como se ve en el pseudocódigo:<br />
+Sabiendo esto una posible solución a este ejercicio es rotar bits una posición hacia la izquierda o derecha según corresponda, hasta llegar al fin de la secuencia o hasta que el pulsador se presione y se suelte y debamos cambiar de dirección.
+Además vamos a recurrir al uso de retardos, usando la función _delay<sub>ms</sub>(), para que sea posible la visualización de encendido de los LEDS para el usuario.
+En caso de que esto no se haga el usuario no podrá ver como los LEDS se prenden y se apagan.
 </p>
 
 <pre class="example">
-INICIALIZACIÓN
-    Definir puertos de entrada y salida
-    Inicializar LEDS apagados
-    Inicializar Estado Inicial
+Definición de Registros del microcontrolador con la librería AVR
+Especificar la frecuencia de reloj del MCU en 16MHz
+Retardos por software – Macros: depende de F_CPU con la libreria delay
+Creación del tipo booleano
 
-LOOP PRINCIPAL
-    Si pulsador presionado y liberado
-        Cambiar Estado de Secuencia
-    Fin Si
-    Ejecutar Secuencia
-FIN LOOP
+Constantes de tiempo
+Definir intervalo de lectura del hardware en milisegundos
+Definir tiempo mínimo estable para considerar una tecla como presionada
+Definir tiempo mínimo estable para considerar una tecla como liberada
+FUNCIÓN para manejar el antirrebote de la tecla
+    Crear un contador para el tiempo de estabilización
+    Inicializar valores de salida de la función
+    Si el estado del pin coincide con el estado antirrebote actual
+        Actualizar el temporizador según el estado actual
+    Sino
+        Si Temporizador expirado
+            Aceptar cambio de estado
+            Restablecer el temporizador según el nuevo estado
+FIN FUNCIÓN
+
+INICIA MAIN
+Definir Puerto B como salida, pin 0 del Puerto C como entrada y activar pull-up interno    
+Mientras sea verdadero
+Llamar a la rutina de antirrebote
+Si el botón se presionó
+    Cambio la secuencia
+    Reset los LEDs a apagados
+    Si es la primera secuencia
+        Dejo los LEDs en el inicio de la primera secuencia
+    Sino
+        Dejo los LEDs en el inicio de la segunda secuencia
+Si es primera secuencia
+    Si estoy al final de la primera secuencia
+        Vuelvo a arrancar la primera secuencia
+    Sino
+        Tomo los valores de los primeros 4 elementos
+        Roto hacia la izquierda
+        Tomo los valores de los últimos 4 elementos
+        Roto hacia la derecha
+        Asignar en PORTB
+    Aplicar un retardo en la visualización
+Sino
+    Si estoy al final de la segunda secuencia
+        Vuelvo a arrancar la segunda secuencia
+    Sino
+        Establecer el primer valor de la secuencia de forma auxiliar
+        Roto hacia la izquierda un solo bit
+        Asignar en PORTB
+    Aplicar un retardo de visualización
+FIN MAIN
 </pre>
+</div>
+</div>
+</div>
 
+<div id="outline-container-org9d01b30" class="outline-3">
+<h3 id="org9d01b30"><span class="section-number-3">1.4.</span> Conclusiones</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org79f1dd3" class="outline-4">
+<h4 id="org79f1dd3"><span class="section-number-4">1.4.1.</span> Enunciado</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+Saque conclusiones sobre el funcionamiento del programa, sobre las ventajas y desventajas de utilizar retardos (delays) para temporizar acciones y cómo estos afectan el tiempo de respuesta a la acción del usuario.
+Hágase preguntas como por ejemplo: ¿qué sucede si se deja presionado constantemente el pulsador? ¿Qué sucede si el retardo es de 1 segundo?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4f5596c" class="outline-4">
+<h4 id="org4f5596c"><span class="section-number-4">1.4.2.</span> Resolución</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<p>
+Podemos concluir que el programa cumple con lo pedido, realiza las secuencias solicitadas de manera correcta.
+Se puede mencionar como posible problema el retardo utilizado para la visualización, ya que tiene dos desventajas.
+</p>
 
 <p>
-<img src="./images/image9.png" alt="image9.png" /><br />
-Simulación en Proteus<br />
+Por una parte si el botón es presionado rápidamente y se encuentra en ejecución el delay antes mencionado, dicha pulsación no tendría efecto.
+El delay es una función bloqueante para el microcontrolador, ya que básicamente mantiene a la CPU ejecutando una serie de instrucciones NOP (que por definición no hacen nada) y no permiten al código principal seguir su flujo normal.
+Debido a esta primera desventaja, el usuario se ve obligado a mantener presionado el botón cierto tiempo.
+Gracias a que el código desarrollado posee un botón no bloqueante, el usuario no verá como las secuencias se detienen, pero tampoco verá un cambio instantáneo.
 </p>
+
+<p>
+La segunda desventaja es entonces el tiempo de respuesta que tiene el programa, y que perjudica a la experiencia de usuario.
+La mayor ventaja de utilizar un retardo bloqueante es que simplemente se necesita hacer uso de la función delay para implementarla, lo que nos ahorraría poner en práctica otras soluciones.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org149f950" class="outline-3">
+<h3 id="org149f950"><span class="section-number-3">1.5.</span> Bibliografía</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>The Ganssle Group</li>
+<li><a href="https://www.ganssle.com/debouncing.htm">https://www.ganssle.com/debouncing.htm</a></li>
+<li><a href="https://www.ganssle.com/debouncing-pt2.htm">https://www.ganssle.com/debouncing-pt2.htm</a></li>
+<li>megaAVR® Data Sheet, ATmega48A/PA/88A/PA/168A/PA/328/P</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: IacobucciB</p>
-<p class="date">Created: 2024-06-28 vie. 15:03</p>
+<p class="date">Created: 2024-06-29 s�b. 14:52</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
