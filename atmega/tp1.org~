@@ -1,0 +1,325 @@
+#+TITLE: CDyM - TP1
+#+HTML_HEAD: <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+#+author: IacobucciB
+
+* CDyM - TP1
+
+** Ejercicio No 1: Repaso de lenguaje C
+
+- Investigue sobre los distintos tipos de variables en C y sus modificadores: static, volatile, register, const. ¿Cuáles son los tipos de datos por defecto en el compilador que utilizaremos?
+
+Los tipos devariables que utilizaremos seran:
+
+static : Asigna una direccion de memoria fija para el objeto en ejecucion.
+Hace que las variables locales de una funcion conserven su valor en distintas llamadas sucesivas.
+
+#+BEGIN_SRC c
+  int foo(){
+    static x = 10;
+    x = x + 1;
+    return x;
+  }
+  
+  int main(){
+    for(int i = 0; i<10; i++){
+      int a = foo();
+      prinf("%d", a);
+    }
+    return 0;
+  }
+#+END_SRC
+Lo que devuelve [10 ... 20]
+
+volatile : Para objetos modificados desde el exterior del programa principal mediante procesos externos (ya sea por interrupciones o por hardware).
+
+register : Almacenamiento en un registro.
+Tiene un tamaño limitado, solo para varriables =char=, =int=, =float=.
+
+const : No puede ser modificado por el programa.
+
+- Investigue sobre las sentencias del pre-procesador de C, entre ellas: #include, #define, #ifdef y typedef.
+
+#include : Para incluir ficheros, librerias u otro programa en C.
+Contiene prototipos de funciones, constantes o macros.
+
+#define : Define un macro o una constante.
+El preprocesador lo sustituye en el resto del programa.
+
+#if : Se puede preguntar por el valor de una constante o la existencia de una macro.
+
+typedef : Para definir tipos de datos propios. Por ejemplo =typedef int tipoVecInt[4]=
+
+- ¿Qué es una constante de carácter? ¿qué es una cadena de caracteres?
+
+Una constante caracter contiene numeros enteros en el rango [-128:128].
+No son del tipo =char= y se los puede representar en hexadecimal.
+
+Una cadena de caracteres es un arreglo en el que cada elemento es de tipo =char=, por ejemplo =char nombre [lim]=
+
+- ¿Cuál es la diferencia entre una variable local y una global? ¿Por qué utilizaría una u otra?
+
+Variable Global : Su ambito es todo el programa.
+
+Variable Local : Su ambito se restringe a la funcion que lo haya creado.
+
+- Describa todos los operadores lógicos de C. ¿cúal es la diferencia entre los operadores && y &, || y |? ¿Qué es una máscara de bits?
+
+Los operadores logicos en C son :
+
+Negacion =!= :
+
+Conjuncion =&&= :
+
+Disyuncion =||= :
+
+Las mascaras de bits en C son :
+
+AND =&= :
+
+OR =|= :
+
+NOT =~= :
+
+Shift Derecha =>>= :
+
+Shift Izquierda =<<= :
+
+- ¿Qué es un prototipo de función en C? ¿Cuáles son las alternativas para pasar argumentos a una función? ¿Cómo se retorna un valor desde una función?
+
+Un prototipo de funcion especifica el nombre, tipo de retorno y parametros (sin incluir el cuerpo) de una funcion. Informa al compilador de su existencia antes de su definicion.
+
+#+BEGIN_SRC c
+  int suma(int *a, int b); // Prototipo de Funcion
+
+  int main(){ // Programa principal
+    int z = suma(5,2);
+    return 0;
+  }
+
+  int suma(int *a, int b){ // Funcion
+    return a + b;
+  }
+#+END_SRC
+
+Las alternativas para pasar argumentos a una funcion son:
+
+Por valor (=int b=) donde la funcion recibe una copia del valor.
+
+Por referencia (=int *a=) donde la funcion recibe una direccion de memoria a la variable y procede a modificar la original.
+
+- Repase el concepto de punteros y arreglos. Explique con ejemplos la relación entre ambos.
+
+Un puntero es una variable que almacena la direccion de memoria de otra variable. 
+
+#+BEGIN_SRC c
+int a = 10;
+int *p;	// Es un puntero a entero
+p = &a;	// El puntero almacena la direccion de memoria de a
+#+END_SRC
+
+Un arreglo es una collecion de elememntos del mismo tipo, almacenado en ubicaciones contiguas de memoria.
+
+#+BEGIN_SRC c
+int arr[5] = {1,2,3,4,5};
+#+END_SRC
+
+La relacion esta en que el nombre del arreglo actua como un puntero al primer elemento del vector
+
+#+BEGIN_SRC c
+int arr[5] = {1,2,3,4,5};
+int *p = arr;
+*(p + 2) = 3;
+*(arr + 2) = 3;
+#+END_SRC
+
+- Investigue sobre los tipos de variables struct y union (estructuras y uniones) en C. De un ejemplo de cada caso.
+
+Las variables tipo =struct= permiten agrupar diferentes tipos de datos bajo un mismo nombre en cada campo, los cuales tienen su propia ubicacion de memoria.
+
+#+BEGIN_SRC c
+  struct persona{
+    char nombre[50];
+    int edad;
+    float altura;
+  }
+#+END_SRC
+
+Las variables tipo =union= permiten almacenar diferentes tipos de datos en la misma ubicacion de memoria, solo pueden contener un valor a la vez.
+
+#+BEGIN_SRC c
+  union numero {
+    int entero;
+    float flotante;
+  }
+#+END_SRC
+
+- ¿Qué son los campos de bit de una estructura?
+
+Los campos de bit (birfields) permiten definir campos individuales que ocupan un numero especifico de bits
+
+#+BEGIN_SRC c
+  struct cBit{
+    unsigned int flag : 3; // Ocupara tres bits
+  }
+#+END_SRC
+
+** Ejercicio No 2: Familia de microntroladores AVR
+
+- Investigue sobre los diferentes modelos de la familia Atmega AVR. Tabule los periféricos, la cantidad de RAM y de FLASH que poseen las distintas versiones. En particular detalle las características de los modelos Atmega328P y Atmega2560 utilizados en las plataformas Open-Source Arduino UNO y MEGA.
+
+|               | Atmega328p  | Atmega2560 |
+|---------------+-------------+------------|
+| Reloj         | 20 MHz      | 16 MHz     |
+| Memoria Flash | 32 Kb       | 256 Kb     |
+| SRAM          | 2 Kb        | 8 Kb       |
+| EEPROM        | 1 Kb        | 4 Kb       |
+| PINs          | 28          | 100        |
+
+El Atmega328p es un AVR de bajo consumo, tiene menos memoria y menos capacidad para diferentes perifericos. Es adecuado para proyectos simples.
+El Atmega2560 es en cambio un modelo de alto rendimiento.
+
+- Detalle las características de la CPU AVR, incluyendo: Arquitectura de la CPU (Realice un diagrama en bloques), modelo de programación, modos de direccionamiento y resumen del conjunto de instrucciones.
+
+La arquitectura de la CPU AVR es del tipo =RISC=, diseñada para ofrecer un alto rendimiento con bajo consumo de energia.
+Utiliza tambien una arquitectura =Harvard= donde la memoria de programa y datos tienen buses independiente.
+
+Tiene 32 registros de proposito general de 8 bits (R0-R31) utilizado para operaciones aritmeticas y logicas.
+
+Posee un stack pointer que indica la instruccion siguiente a ejecutar.
+
+Tiene diferentes modos de direccionamiento tales como : directo, indirecto, inmediato, inmediato con desplazamiento e indirecto con registro-indice
+
+Tiene un conjunto de intrucciones que incluye operaciones aritmeticas basicas, logicas, de desplazamiento, comparacion y de control de flujo.
+Soporta instrucciones de carga y almacenamiento para acceder a memoria y perifericos, ademas de interrupciones con prioridades.
+
+- Puertos de Entrada/Salida: Describa qué registros se utilizan para controlar los puertos de entrada y salida. Realice un diagrama en bloques de un terminal de entrada y salida y explique su funcionamiento.
+
+Para entender el funcionamiento de un termina de entreada salida primero debemos de repasar el concepto del buffer triestado.
+Un buffer triestado hace que el pin de salida no tenga relevancia en el circuito o por ejemplo borrar la influencia de un dispositivo forzandolo a Hi-Z.
+
+Esto permite compartir la misma linea de salida y que en un mismo bus no hayan dos señales.
+
+#+CAPTION: Diagrama de Bloques Puerto I/O
+[[./cdym-tp1-buffer-triestado.png]]
+
+Por ejemplo, el protocolo I2C necesita de resistencia pull-up en sus dos canales de lineas de comunicacion.
+Cuando el dispositivo esta inactivo, ponen las salidas de sus buffer triestados en hi-Z, entonces fuerza un "1" o tension alta las lineas SDA y SCL.
+
+*Estructura del puerto I/O*
+
+| DDRx | PORTx | Config. | Pull-Up |
+|------+-------+---------+---------|
+|    0 |     0 | Input   | No      |
+|    0 |     1 | Output  | Si      |
+|    1 |     0 | Output  | No      |
+|    1 |     1 | Output  | No      |
+
+#+CAPTION: Diagrama de Bloques Puerto I/O
+[[./cdym-tp1-puerto-io.png]]
+
+
+- Investigue cual es la capacidad de corriente que puede manejar un terminal individual configurado como salida. ¿Depende del estado lógico? ¿cuál es la capacidad de corriente que puede manejar el microcontrolador con todos los puertos funcionando simultáneamente?
+
+Para obtener la capacidad de corriente que puede manejar uno o varios terminales del MCU deberemos de leer la hoja de datos.
+
+
+#+CAPTION: Caracteristicas Electricas
+[[./cdym-tp1-carateristicas-electricas.png]]
+
+  
+- Indique cuales son las dos posibilidades de conexión de un LED a un terminal de entrada y salida. Calcule la resistencia serie para que la corriente máxima por cada LED sea de 5mA. Muestre como configurar el terminal como salida y como modificar su estado lógico.
+
+Un LED (Light Emitting Diode) es un dispositivo semiconductor que emite luz cuando una corriente electrica pasa a travez de el.
+Un LED  posee dos terminales o bornes para su conexion, el Anodo y el Catodo.
+
+El Anodo es el terminal positivo del LED, es el punto por donde entra la corriente.
+
+El Catodo es el terminal negativo del LED, es el punto por donde sale la corriente.
+
+El LED puede estar polarizado de dos formas diferente:
+
+En la polarizacion directa, el anodo del LED se conecta al terminal positivo de la fuente de alimentacion y el catodo al terminal negativo.
+Cuando se aplica un voltaje adecuado, el LED se enciende y emite luz.
+La corriente fluye desde el anodo hacia el catodo.
+
+En la polarizacion inversa, el anodo del LED se conecta al terminal negativo de la fuente de alimentacion y el catodo al terminal positivo.
+El LED no se enciende y no permite el paso de corriente (o solo permite un paso minimo de corriente de fuga)
+La polarizacion inversa puede dañar el LED si se aplica un voltaje demasiado alto en esta configuracion.
+
+Para la conexion de multiples LEDs (como una matriz) y tener un mayor control sobre los mismos, tenemos dos opciones para su conexion.
+
+En la configuracion Anodo Comun, todos los anodos de los LEDs se conectan juntos a un voltaje positivo comun.
+Los catodos de los LEDs se conectan a los pines de control que pueden ser configurados para permitir o bloquear el flujo de corriente.
+Si quisieramos encender el LED en esta configuracion deberemos de poner un CERO en el pin del controlador.
+
+En la configuracion Catodo Comun, todos los catodos de los LEDs estan conectados juntos a una conexion tierra comun.
+Los anodos de los LEDs se conectan a los pines de control que pueden ser configurados para permitir o bloquear el flujo de corriente.
+Si quisieramos encender el LED en esta configuracion deberemos de poner un UNO en el pin del controlador.
+
+
+#+CAPTION: Elelemento LED
+[[./cdym-tp1-elemento-led.png]]
+
+Entonces si queremos conectar un LED a un terminal Entrada/Salida, tendremos las siguiente opciones:
+
+#+CAPTION: Alternativas Conexion LED
+[[./cdym-tp1-conexion-led.png]]
+
+En donde en la conextion Anodo a la Salida el LED se enciende cuando la salida del microcontrolador es alta.
+Y en la conexion Catodo a la Salida el LED se enciende cuando la salida del microcontrolador es baja.
+
+Para calcula la resistencia serie que limita la corriente a $5mA$, se debe conocer el Voltaje de Alimentacion ($V_{cc}$) y la caida de Voltaje del LED ($V_{LED}$).
+
+La resistencia R calculada por Ley de Ohm es :
+$$
+R = \frac{V_{cc} - V_{LED}}{I_{LED}}
+$$
+Si asumimos un par de datos como que el Voltaje de Alimentacion es $5V$, una caida de Voltaje del LED de unos %2V% y utilizamos el dato de que la corriente maxima por cada LED no puede superar los $5mA$
+$$
+R = \frac{V_{cc} - V_{LED}}{I_{LED}} = \frac{5V - 2V}{0.005A} = 600\Omega
+$$
+
+
+
+- Se desea conectar un pulsador a una entrada digital del MCU. Investigue los posibles esquemas de conectar un pulsador y determine el algoritmo más adecuado para detectar en cada caso cuando el pulsador se presiona y se suelta. ¿Qué es una resistencia de pull-up? ¿y de pull-down? ¿Importa su valor? Investigue sobre cómo utilizar los pull-up internos del MCU.
+
+  
+** EJERCICIOS DE REPASO
+
+- Dado un número N de 8 bits sin signo, realice una función en C que devuelva la suma de los números consecutivos de 1 hasta N. Analice el tipo de variable que retorna más conveniente.
+
+- Implemente una función que reciba como parámetros un arreglo (vector) y su tamaño en bytes. La función debe reordenar el vector de manera inversa, es decir: el primer valor pasará a ser el último y así siguiendo. Los parámetros de entrada deben pasarse por referencia y por valor respectivamente.
+  
+- Realice una función de C para convertir un número binario de 8 bits sin signo en un conjunto de caracteres ASCII que correspondan a los dígitos de dicho número. El número a convertir se debe pasar como parámetro y los dígitos ASCII resultantes deberán retornarse en una cadena de caracteres. Por ejemplo, si el dato de entrada es 124 (0x7C) los 3 dígitos ASCII serán ‘1’,’2’ y ‘4’.
+  
+- Realice una función en C, que reciba como parámetro un número N de 8 bits y lo envíe de manera serie por un bit de salida de un puerto a razón de un bit cada 1ms comenzando por el menos significativo.
+
+- Explique qué hacen las siguientes sentencias de C: DDRB=0x0F; PORTB=0x0E;
+
+=DDRB=0x0F;= : "Data Direction Register" controla el modo de los pines en el puerto B. Si tiene un bit en 1 es una salida, si tiene un bit en 0 es una salida.
+=0x0F= : 00001111b
+
+=PORTB=0x0E;= : Depende como fue configurado DDRB:
+Si DDRB es una entrada, habilita o desactiva el pull-up interno de cada pin.
+Si DDRB es una salida, configura el estdo logico de cada pin como nivel alto o bajo.
+
+- Explique qué hace la siguiente sentencia de C: PORTC |= (1<< PORTC 0) | (1<< PORTC2) | (1<< PORTC3) ¿Cuál es la diferencia con la última del ejercicio anterior. ¿Qué representa PORTCx? ¿Dónde y cómo está definido?
+
+PORTC |= (1<< PORTC0) | (1<< PORTC2) | (1<< PORTC3)
+
+Es una mascara de bits en puerto C.
+
+(1<< PORTC0) : Desplaza hacia la izquierda en la posicion del bit un 1, en efecto crea un valor donde el bit PORTCx queda forzado a estar en 1
+Los puertos van del [7:0], el numero binario creado es =00001101b=
+
+La mascara =OR= nos sirve para forzar un 1 con un 1 y dejar igual al resto de valores con 0.
+
+\begin{array}{r@{\;}r}
+  & xx \\
+or & 0 1 \\
+\hline
+  & x1 \\
+\end{array}
+
+** EJERCICIOS DE SIMULACION
+

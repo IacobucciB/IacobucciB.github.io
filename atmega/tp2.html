@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-07-06 sáb. 16:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CDyM - TP2</title>
+<meta name="author" content="IacobucciB" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">CDyM - TP2</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgd447e3a">1. CDyM -TP2</a>
+<ul>
+<li><a href="#org36c507c">1.1. Ejercicio No 1: Display LCD</a></li>
+<li><a href="#orgcbcd0e2">1.2. Ejercicio No 2: Teclado Matricial 4x4</a></li>
+<li><a href="#orgfd862a5">1.3. Ejercicio No 3: Interrupciones</a></li>
+<li><a href="#org699fec1">1.4. Ejercicio No 4: Temporizadores</a></li>
+<li><a href="#org5f06d90">1.5. Ejercicio No 5: Temporizador Asincrónico–RTC (Contador de Tiempo Real)</a></li>
+<li><a href="#org6655783">1.6. Ejercicio No 6: Implementación de Maquinas de Estado Finitos (MEF)</a></li>
+<li><a href="#org4e91478">1.7. Ejercicio No 7: Planificación Cooperativa de Tareas y Modularización</a></li>
+<li><a href="#orgecd5d2d">1.8. Ejercicio No 8: Sistema de generación y distribución de reloj</a></li>
+<li><a href="#org1c71854">1.9. EJERCICIOS PARA REALIZAR CON SIMULADOR</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd447e3a" class="outline-2">
+<h2 id="orgd447e3a"><span class="section-number-2">1.</span> CDyM -TP2</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org36c507c" class="outline-3">
+<h3 id="org36c507c"><span class="section-number-3">1.1.</span> Ejercicio No 1: Display LCD</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>(a) Vamos a utilizar el LCD 1602A de 16 caracteres y dos líneas para visualizar información. Investigue con la hoja de datos como funciona este periférico, realice un resumen de sus características y de los comandos necesarios para su operación.</li>
+<li>(b) Haga el diagrama esquemático en Proteus que incluya el LCD y el teclado matricial del kit utilizado en clase (fig.1)</li>
+<li>(c) Verifique que los niveles lógicos de la interfaz del periférico sean compatibles con los niveles de los puertos I/O del MCU.</li>
+<li>(d) Explique cómo funcionan las funciones de biblioteca para el control del LCD que utilizaremos en la práctica (provistas en los archivos lcd.h y lcd.c). Particularmente, las funciones: LCDinit(), LCDgotoxy() y LCDstring().</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcbcd0e2" class="outline-3">
+<h3 id="orgcbcd0e2"><span class="section-number-3">1.2.</span> Ejercicio No 2: Teclado Matricial 4x4</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>(a) Explique cómo funciona el teclado de membrana dispuesto en forma matricial (4x4). Realice un esquema de conexionado para controlarlo con los puertos I/O del MCU. ATENCION: el diagrama de conexionado será el del kit utilizado en clase (fig.1) Explique cómo configurar la dirección de cada teminal I/O y cuales requieren resistencias de Pull-ups.</li>
+<li>(b) Realice una función en C con el siguiente prototipo uint8 KEYPAD<sub>Scan</sub>(uint8 *key), que permita encuestar el teclado para determinar si se presionó una tecla y el valor de la misma. La función debe retornar 0 si no se presionó ninguna tecla o 1 si se presionó alguna. El valor de la tecla (o carácter ASCII) debe retornarse por el puntero pasado como parámetro (*key).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfd862a5" class="outline-3">
+<h3 id="orgfd862a5"><span class="section-number-3">1.3.</span> Ejercicio No 3: Interrupciones</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>(a) Explique cuál es la secuencia de pasos que realiza el MCU cuando recibe una señal de pedido de interrupción. ¿cómo se retorna a la ejecución normal del programa?</li>
+<li>(b) Explique para qué sirve el bit I que se encuentra en el SREG. ¿Cuál es el valor por defecto luego del RESET? ¿Cuáles son las instrucciones que permiten modificarlo?</li>
+<li>(c) Explique que es un RESET, las distintas maneras por las que puede generarse y la función del registro MCU Status Register.</li>
+<li>(d) Explique qué es la latencia de una interrupción y cuáles son los valores mínimos que puede tomar medida en ciclos de reloj.</li>
+<li>(e) Explique qué entiende por interrupciones anidadas. ¿Es posible por defecto?</li>
+<li>(f) Investigue sobre la configuración y el uso de los terminales de interrupción Externa (INTx). ¿Cuál es la diferencia entre configurar la interrupción por flanco o por nivel?</li>
+<li>(g) Interrupciones desde los puertos de Entrada/Salida (PIN Change Interrupts).
+<ul class="org-ul">
+<li>Describa que terminales I/O pueden generar interrupciones por cambio de estado</li>
+<li>Investigue como se configuran estas interrupciones en los puertos de Entrada/Salida</li>
+<li>Describa cuales son los vectores de interrupción asociados y sus prioridades relativas.</li>
+<li>Comente las diferencias más importantes con las interrupciones del punto f).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org699fec1" class="outline-3">
+<h3 id="org699fec1"><span class="section-number-3">1.4.</span> Ejercicio No 4: Temporizadores</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>(a) Describa los componentes principales del módulo TIMER0 y explique sus modos de funcionamiento.</li>
+<li>(b) Explique cómo funciona el prescalador (Prescaler) y obtenga una expresión para calcular la frecuencia de reloj del contador (CLKTn) y la frecuencia de desborde (Overflow) en función de las distintas opciones de fuentes de reloj. ¿Cómo se borra la bandera de desborde?</li>
+<li>(c) Si se tiene una frecuencia de CLKIO de 8MHz, establezca con que valores debería inicializar los registros pertinentes del TIMER0 para realizar un retardo de 1ms. ¿es posible generar un retardo de 1000 ms?</li>
+<li>(d) Si se tiene una frecuencia de CLKIO de 8MHz, configure TIMER0 para generar una interrupción periódica de 1ms.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5f06d90" class="outline-3">
+<h3 id="org5f06d90"><span class="section-number-3">1.5.</span> Ejercicio No 5: Temporizador Asincrónico–RTC (Contador de Tiempo Real)</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>(a) Analice las diferencias y similitudes entre TIMER0 y TIMER2.</li>
+<li>(b) Si se usa el cristal externo de 32.768kHz, determine con que valores debería inicializar los registros pertinentes del módulo para obtener una interrupción periódica de 10 ms.</li>
+<li>(c) Busque información sobre los circuitos integrados IC: DS1302 y DS3231 ¿Qué funcionalidad proveen? ¿Cómo se conectan a un MCU? ¿Qué ventajas le encuentra a su uso?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6655783" class="outline-3">
+<h3 id="org6655783"><span class="section-number-3">1.6.</span> Ejercicio No 6: Implementación de Maquinas de Estado Finitos (MEF)</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>(a) ¿Qué es un modelo de Estados Finitos? ¿Qué elementos contiene? ¿Cómo se especifica?</li>
+<li>(b) ¿Cuál es la diferencia entre el modelo propuesto por Moore y el de Mealy?</li>
+<li>(c) Describa diferentes maneras para implementar en C un modelo MEF, ¿Cómo conviene declarar las variables de estados? De un ejemplo resumido del código para una posible implementación.</li>
+<li>(d) ¿Cómo se inicializa una MEF? ¿Cómo se actualiza una MEF?</li>
+<li>(e) Analice diferencias y similitudes de una implementación MEF en lenguaje C y en lenguaje VHDL partiendo del mismo modelo de la MEF.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4e91478" class="outline-3">
+<h3 id="org4e91478"><span class="section-number-3">1.7.</span> Ejercicio No 7: Planificación Cooperativa de Tareas y Modularización</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li>(a) Explique en qué consiste un esquema de planificación cooperativo con interrupción periódica de timer.</li>
+<li>(b) Determine el periodo de la interrupción para la planificación de tres tareas periódicas x(), y(), z() con períodos 10, 25 y 50ms respectivamente. ¿Qué condiciones tiene que asumir para que el funcionamiento del sistema esté garantizado y sea confiable?</li>
+<li>(c) Explique mediante pseudocódigo como implementar el planificador y despachador de las tareas y muestre con un diagrama temporal un ejemplo de la ejecución de las mismas.</li>
+<li>(d) En el caso de que haya superposición de tareas en el mismo tick de sistema, explique cómo puede hacerse la planificación del inciso b) para que no haya superposición en la ejecución de x(), y(), z().</li>
+<li>(e) Explique qué entiende por modularización de software y qué ventajas tiene.</li>
+<li>(f) Explique la manera de modularizar archivos en C a partir del concepto de clases tomado de la P.O.O.</li>
+<li>(g) Explique cómo se emplea el modificador static con las funciones, variables y constantes para modularizar un programa en C.</li>
+<li>(h) Explique que son las funciones privadas y las funciones públicas de un módulo, de un ejemplo de implementación de cada una.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgecd5d2d" class="outline-3">
+<h3 id="orgecd5d2d"><span class="section-number-3">1.8.</span> Ejercicio No 8: Sistema de generación y distribución de reloj</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li>(a) Explique cuáles son las posibles fuentes de reloj y sus rangos de frecuencia para que funcione el MCU.</li>
+<li>(b) Explique cómo se distribuyen internamente las señales de reloj para la CPU y los distintos periféricos según las diferentes opciones (diagrama en bloques de la distribución interna de las señales de reloj).</li>
+<li>(c) Investigue sobre cómo utilizar la biblioteca de funciones de bajo consumo (sleep.h).</li>
+<li>(d) Explique cuál es la configuración del reloj del sistema dispuesta desde fábrica y que tolerancia tiene la frecuencia del mismo.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1c71854" class="outline-3">
+<h3 id="org1c71854"><span class="section-number-3">1.9.</span> EJERCICIOS PARA REALIZAR CON SIMULADOR</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: IacobucciB</p>
+<p class="date">Created: 2024-07-06 sáb. 16:54</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
