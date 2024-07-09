@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-07-02 mar. 10:02 -->
+<!-- 2024-07-08 lun. 20:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CDyM - TP4</title>
@@ -193,7 +193,6 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
 <script>
   window.MathJax = {
     tex: {
@@ -234,22 +233,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgefe0e22">1. CDyM - TP4</a>
+<li><a href="#orgd090de0">1. CDyM - TP4</a>
 <ul>
-<li><a href="#org2aeee05">1.1. Ejercicio No 1: TIMERS - Modos PWM</a>
+<li><a href="#orgffcdcea">1.1. Ejercicio No 1: TIMERS - Modos PWM</a>
 <ul>
-<li><a href="#org2aa61f5">1.1.1. Señal PWM</a></li>
-<li><a href="#orgaceab2b">1.1.2. Fast PWM</a></li>
-<li><a href="#org5153735">1.1.3. Frecuencia, Ciclo de Trabajo y Resolucion</a></li>
-<li><a href="#org78df117">1.1.4. Resolucion en mV</a></li>
-<li><a href="#org5ab45ff">1.1.5. PWM Phase Correct</a></li>
+<li><a href="#orge01067e">1.1.1. Señal PWM</a></li>
+<li><a href="#org25d7387">1.1.2. Fast PWM</a></li>
+<li><a href="#org3919822">1.1.3. Frecuencia, Ciclo de Trabajo y Resolucion</a></li>
+<li><a href="#org8eb2ad3">1.1.4. Resolucion en mV</a></li>
+<li><a href="#orga62426c">1.1.5. PWM Phase Correct</a></li>
 </ul>
 </li>
-<li><a href="#orgb17b648">1.2. Ejercicio No 2: Conversor Analógico – Digital (ADC)</a></li>
-<li><a href="#org095503a">1.3. EJERCICIOS PARA SIMULAR</a>
+<li><a href="#orgec3154f">1.2. Ejercicio No 2: Conversor Analógico – Digital (ADC)</a></li>
+<li><a href="#org5a8fd87">1.3. EJERCICIOS PARA SIMULAR</a>
 <ul>
-<li><a href="#org040dfa0">1.3.1. Ejercicio No 1: PMW</a></li>
-<li><a href="#orgd1d4f13">1.3.2. Ejercicio No 2: ADC</a></li>
+<li><a href="#orge1809db">1.3.1. Ejercicio No 1: PMW</a></li>
+<li><a href="#orgbfac0e2">1.3.2. Ejercicio No 2: ADC</a></li>
 </ul>
 </li>
 </ul>
@@ -258,16 +257,16 @@
 </div>
 </div>
 
-<div id="outline-container-orgefe0e22" class="outline-2">
-<h2 id="orgefe0e22"><span class="section-number-2">1.</span> CDyM - TP4</h2>
+<div id="outline-container-orgd090de0" class="outline-2">
+<h2 id="orgd090de0"><span class="section-number-2">1.</span> CDyM - TP4</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org2aeee05" class="outline-3">
-<h3 id="org2aeee05"><span class="section-number-3">1.1.</span> Ejercicio No 1: TIMERS - Modos PWM</h3>
+<div id="outline-container-orgffcdcea" class="outline-3">
+<h3 id="orgffcdcea"><span class="section-number-3">1.1.</span> Ejercicio No 1: TIMERS - Modos PWM</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org2aa61f5" class="outline-4">
-<h4 id="org2aa61f5"><span class="section-number-4">1.1.1.</span> Señal PWM</h4>
+<div id="outline-container-orge01067e" class="outline-4">
+<h4 id="orge01067e"><span class="section-number-4">1.1.1.</span> Señal PWM</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li>Explique que es una señal PWM y muestre como calcular el valor medio de dicha señal.</li>
@@ -305,7 +304,7 @@ T : Periodo de la Función
 
 
 
-<div id="org32a935e" class="figure">
+<div id="org3dbed61" class="figure">
 <p><img src="./cdym-tp4-ciclo-de-trabajo.png" alt="cdym-tp4-ciclo-de-trabajo.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Ciclo de Trabajo</p>
@@ -354,8 +353,8 @@ V_{medio} = D * V_{ref}
 </div>
 </div>
 
-<div id="outline-container-orgaceab2b" class="outline-4">
-<h4 id="orgaceab2b"><span class="section-number-4">1.1.2.</span> Fast PWM</h4>
+<div id="outline-container-org25d7387" class="outline-4">
+<h4 id="org25d7387"><span class="section-number-4">1.1.2.</span> Fast PWM</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li>Explique el funcionamiento del modo “Fast PWM”. Haga un diagrama temporal. Muestre cómo generar dos señales PWM de polaridades opuestas utilizando los generadores A y B.</li>
@@ -366,7 +365,7 @@ El modo "Fast PWM" es una forma de operación para generar señales PWM de alta 
 </p>
 
 
-<div id="orga5a34bb" class="figure">
+<div id="orgffab902" class="figure">
 <p><img src="./cdym-tp4-fast-pwm.png" alt="cdym-tp4-fast-pwm.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Ciclo de Trabajo</p>
@@ -374,8 +373,8 @@ El modo "Fast PWM" es una forma de operación para generar señales PWM de alta 
 </div>
 </div>
 
-<div id="outline-container-org5153735" class="outline-4">
-<h4 id="org5153735"><span class="section-number-4">1.1.3.</span> Frecuencia, Ciclo de Trabajo y Resolucion</h4>
+<div id="outline-container-org3919822" class="outline-4">
+<h4 id="org3919822"><span class="section-number-4">1.1.3.</span> Frecuencia, Ciclo de Trabajo y Resolucion</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <ul class="org-ul">
 <li>Encuentre las ecuaciones de frecuencia y ciclo de trabajo del PWM generado con el modo anterior ¿de qué dependen? Calcule la resolución relativa, en bits y en %, con la que se puede variar el ciclo de trabajo para una configuración genérica de los registros.</li>
@@ -437,8 +436,8 @@ La resolución en porcentaje se refiere al cambio minimo en el ciclo de trabajo 
 </div>
 </div>
 
-<div id="outline-container-org78df117" class="outline-4">
-<h4 id="org78df117"><span class="section-number-4">1.1.4.</span> Resolucion en mV</h4>
+<div id="outline-container-org8eb2ad3" class="outline-4">
+<h4 id="org8eb2ad3"><span class="section-number-4">1.1.4.</span> Resolucion en mV</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <ul class="org-ul">
 <li>Calcule la resolución (en mV) del valor medio de la señal PWM filtrada.</li>
@@ -452,8 +451,8 @@ La resolución en porcentaje se refiere al cambio minimo en el ciclo de trabajo 
 </div>
 </div>
 
-<div id="outline-container-org5ab45ff" class="outline-4">
-<h4 id="org5ab45ff"><span class="section-number-4">1.1.5.</span> PWM Phase Correct</h4>
+<div id="outline-container-orga62426c" class="outline-4">
+<h4 id="orga62426c"><span class="section-number-4">1.1.5.</span> PWM Phase Correct</h4>
 <div class="outline-text-4" id="text-1-1-5">
 <ul class="org-ul">
 <li>Explique el funcionamiento del modo “PWM Phase Correct”. Muestre cómo lo utilizaría para generar dos señales de la misma frecuencia PWM pero con el ciclo de trabajo de una de ellas 1/3 del ciclo de trabajo de la otra.</li>
@@ -463,8 +462,8 @@ La resolución en porcentaje se refiere al cambio minimo en el ciclo de trabajo 
 </div>
 
 
-<div id="outline-container-orgb17b648" class="outline-3">
-<h3 id="orgb17b648"><span class="section-number-3">1.2.</span> Ejercicio No 2: Conversor Analógico – Digital (ADC)</h3>
+<div id="outline-container-orgec3154f" class="outline-3">
+<h3 id="orgec3154f"><span class="section-number-3">1.2.</span> Ejercicio No 2: Conversor Analógico – Digital (ADC)</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Haga un diagrama en bloques explicando las distintas partes del módulo ADC integrado en el microcontrolador y enumere las características principales del mismo.</li>
@@ -504,12 +503,12 @@ La resolución en porcentaje se refiere al cambio minimo en el ciclo de trabajo 
 </div>
 
 
-<div id="outline-container-org095503a" class="outline-3">
-<h3 id="org095503a"><span class="section-number-3">1.3.</span> EJERCICIOS PARA SIMULAR</h3>
+<div id="outline-container-org5a8fd87" class="outline-3">
+<h3 id="org5a8fd87"><span class="section-number-3">1.3.</span> EJERCICIOS PARA SIMULAR</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org040dfa0" class="outline-4">
-<h4 id="org040dfa0"><span class="section-number-4">1.3.1.</span> Ejercicio No 1: PMW</h4>
+<div id="outline-container-orge1809db" class="outline-4">
+<h4 id="orge1809db"><span class="section-number-4">1.3.1.</span> Ejercicio No 1: PMW</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <ul class="org-ul">
 <li>Realice un programa que permita generar una señal PWM con el TIMER 0 del MCU. El valor del ciclo de trabajo (entre 0 y 99%) deberá enviarse al MCU desde la terminal serie. Utilice el modo 7 fast PWM para generar los 100 ciclos de trabajo. Muestre cuales son las posibles frecuencias de PWM en base a la configuración del prescalador, elija uno para su implementación. Simule en Proteus y verifique la señal mediante el osciloscopio.</li>
@@ -523,8 +522,8 @@ La resolución en porcentaje se refiere al cambio minimo en el ciclo de trabajo 
 </div>
 
 
-<div id="outline-container-orgd1d4f13" class="outline-4">
-<h4 id="orgd1d4f13"><span class="section-number-4">1.3.2.</span> Ejercicio No 2: ADC</h4>
+<div id="outline-container-orgbfac0e2" class="outline-4">
+<h4 id="orgbfac0e2"><span class="section-number-4">1.3.2.</span> Ejercicio No 2: ADC</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <ul class="org-ul">
 <li>Realice un programa para tomar muestras del canal ADC3 (PC3) de manera periódica cada 100ms. Para esto deberá configurar adecuadamente el periférico y un temporizador para controlar el periodo de muestreo. El valor medido deberá mostrarse en unidades de mV en un LCD. Para comprobar o simular este comportamiento, utilice una resistencia variable (POT) conectada al terminal ADC3.</li>
@@ -538,7 +537,7 @@ La resolución en porcentaje se refiere al cambio minimo en el ciclo de trabajo 
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: IacobucciB</p>
-<p class="date">Created: 2024-07-02 mar. 10:02</p>
+<p class="date">Created: 2024-07-08 lun. 20:55</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
