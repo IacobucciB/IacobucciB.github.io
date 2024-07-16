@@ -1,0 +1,33 @@
+#+TITLE: CDyM - TP2
+#+HTML_HEAD: <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+#+author: IacobucciB
+
+* CDyM -TP2
+
+Ejercicio No 1: Display LCD
+a) Vamos a utilizar el LCD 1602A de 16 caracteres y dos líneas para visualizar información. Investigue con la
+hoja de datos como funciona este periférico, realice un resumen de sus características y de los comandos
+necesarios para su operación.
+b) Haga el diagrama esquemático en Proteus que incluya el LCD y el teclado matricial del kit utilizado en clase
+(fig.1)
+c) Verifique que los niveles lógicos de la interfaz del periférico sean compatibles con los niveles de los puertos
+I/O del MCU.
+d) Explique cómo funcionan las funciones de biblioteca para el control del LCD que utilizaremos en la práctica
+(provistas en los archivos lcd.h y lcd.c). Particularmente, las funciones: LCDinit(), LCDgotoxy() y
+LCDstring().
+
+Ejercicio No 2: Teclado Matricial 4x4
+a) Explique cómo funciona el teclado de membrana dispuesto en forma matricial (4x4). Realice un esquema
+de conexionado para controlarlo con los puertos I/O del MCU. ATENCION: el diagrama de conexionado será el
+del kit utilizado en clase (fig.1) Explique cómo configurar la dirección de cada teminal I/O y cuales requieren
+resistencias de Pull-ups.
+b) Realice una función en C con el siguiente prototipo uint8 KEYPAD_Scan(uint8 *key), que permita
+encuestar el teclado para determinar si se presionó una tecla y el valor de la misma. La función debe retornar 0
+si no se presionó ninguna tecla o 1 si se presionó alguna. El valor de la tecla (o carácter ASCII) debe retornarse
+por el puntero pasado como parámetro (*key).
+Ejercicio No 3: Interrupciones
+a) Explique cuál es la secuencia de pasos que realiza el MCU cuando recibe una señal de pedido de
+interrupción. ¿cómo se retorna a la ejecución normal del programa?
+b) Explique para qué sirve el bit I que se encuentra en el SREG. ¿Cuál es el valor por defecto luego del
+RESET? ¿Cuáles son las instrucciones que permiten modificarlo?
+

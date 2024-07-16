@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-07-08 lun. 20:55 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CDyM - TP4</title>
+<meta name="author" content="IacobucciB" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">CDyM - TP4</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgd090de0">1. CDyM - TP4</a>
+<ul>
+<li><a href="#orgffcdcea">1.1. Ejercicio No 1: TIMERS - Modos PWM</a>
+<ul>
+<li><a href="#orge01067e">1.1.1. Señal PWM</a></li>
+<li><a href="#org25d7387">1.1.2. Fast PWM</a></li>
+<li><a href="#org3919822">1.1.3. Frecuencia, Ciclo de Trabajo y Resolucion</a></li>
+<li><a href="#org8eb2ad3">1.1.4. Resolucion en mV</a></li>
+<li><a href="#orga62426c">1.1.5. PWM Phase Correct</a></li>
+</ul>
+</li>
+<li><a href="#orgec3154f">1.2. Ejercicio No 2: Conversor Analógico – Digital (ADC)</a></li>
+<li><a href="#org5a8fd87">1.3. EJERCICIOS PARA SIMULAR</a>
+<ul>
+<li><a href="#orge1809db">1.3.1. Ejercicio No 1: PMW</a></li>
+<li><a href="#orgbfac0e2">1.3.2. Ejercicio No 2: ADC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd090de0" class="outline-2">
+<h2 id="orgd090de0"><span class="section-number-2">1.</span> CDyM - TP4</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgffcdcea" class="outline-3">
+<h3 id="orgffcdcea"><span class="section-number-3">1.1.</span> Ejercicio No 1: TIMERS - Modos PWM</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orge01067e" class="outline-4">
+<h4 id="orge01067e"><span class="section-number-4">1.1.1.</span> Señal PWM</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li>Explique que es una señal PWM y muestre como calcular el valor medio de dicha señal.</li>
+</ul>
+
+<p>
+Pulse Width Modulation (PWM) o en español Modulacion por Ancho de Pulso es una técnica en la que se logra variar el ancho del pulso de una señal y tiene como salida una señal periodica a la que se le modifica el Ciclo de Trabajo.
+</p>
+
+<p>
+La técnica de PWM permite obtener una señal analógica a partir de una digital. La señal analógica se obtiene a partir del promedio de la señal digital, y a su vez este promedio cambia con el Ciclo de Trabajo.
+</p>
+
+<p>
+Se denomina ciclo de trabajo al porcentaje de tiempo en que la señal esta activa respecto al periodo total.
+</p>
+
+<p>
+\[
+D = \frac{A}{T} * 100
+\]
+</p>
+
+<p>
+D : Ciclo de Trabajo  
+</p>
+
+<p>
+A : Tiempo en el que la función es positiva (Ancho del Pulso)  
+</p>
+
+<p>
+T : Periodo de la Función
+</p>
+
+
+
+<div id="org3dbed61" class="figure">
+<p><img src="./cdym-tp4-ciclo-de-trabajo.png" alt="cdym-tp4-ciclo-de-trabajo.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Ciclo de Trabajo</p>
+</div>
+
+
+<p>
+El valor medio de una señal se puede calcular como:
+\[
+V_{medio} = \frac{\text{Area bajo la curva de la señal}}{\text{Periodo Total}}
+\]
+</p>
+
+<p>
+La señal cuadrada tiene entonces dos partes:
+</p>
+
+<p>
+Una parte alta de cuyo ancho es \(A\) y tiene un area de \(A * V_{ref}\)
+</p>
+
+<p>
+Una parte baja cuyo ancho es \(T-A\) y tiene un area de \(0\)
+</p>
+
+<p>
+Si calculamos el Area total bajo la Curva sera entonces:
+\[
+\text{Area} = V_{ref} * A + 0
+\]
+</p>
+
+<p>
+El valor medio es entonces:
+\[
+V_{medio} = \frac{V_{ref} * A}{T_{total}}
+\]
+</p>
+
+<p>
+Si sacamos como factor comun al Ciclo de Trabajo el valor medio de la señal PWM se define entonces como:
+\[
+V_{medio} = D * V_{ref}
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org25d7387" class="outline-4">
+<h4 id="org25d7387"><span class="section-number-4">1.1.2.</span> Fast PWM</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>Explique el funcionamiento del modo “Fast PWM”. Haga un diagrama temporal. Muestre cómo generar dos señales PWM de polaridades opuestas utilizando los generadores A y B.</li>
+</ul>
+
+<p>
+El modo "Fast PWM" es una forma de operación para generar señales PWM de alta frecuencia. Es denominado rapido porque permite actualizar el valor del comparador y del ciclo de trabajo en cada ciclo del reloj.
+</p>
+
+
+<div id="orgffab902" class="figure">
+<p><img src="./cdym-tp4-fast-pwm.png" alt="cdym-tp4-fast-pwm.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Ciclo de Trabajo</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3919822" class="outline-4">
+<h4 id="org3919822"><span class="section-number-4">1.1.3.</span> Frecuencia, Ciclo de Trabajo y Resolucion</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li>Encuentre las ecuaciones de frecuencia y ciclo de trabajo del PWM generado con el modo anterior ¿de qué dependen? Calcule la resolución relativa, en bits y en %, con la que se puede variar el ciclo de trabajo para una configuración genérica de los registros.</li>
+</ul>
+
+<p>
+La frecuencia para el modo Fast PWM es:
+\[
+F_{PWM} = \frac{F_{oscilador}}{(TOP+1)*N}
+\]
+Donde \(F_{oscilador}\) es 16MHz y para Timer0 : TOP = 0xFF (256)
+</p>
+
+<p>
+El Ciclo de Trabajo es para Fast PWM es:
+</p>
+
+<p>
+Para el Modo No Invertido
+\[
+\text{Ciclo de Trabajo} = \frac{OCR0 + 1}{TOP} * 100
+\]
+</p>
+
+<p>
+Para el modo Invertido:
+\[
+\text{Ciclo de Trabajo} = \frac{TOP - OCR0}{TOP} * 100
+\]
+</p>
+
+<p>
+La resolución viene determinada por la longitud de la palabra digital (número de bits).
+La codificación más simple utilizaría una resolución de 1 bit. Con un bit (dado que se usa el sistema binario que son potencias de dos: \(2^n\)) solo se permite seleccionar entre dos valores (\(2^1\)): o cero o uno.
+</p>
+
+<p>
+El numero total de valores niveles posibles para el contador es TOP + 1. En un temporizador de 8 bits sabemos que TOP = 255.
+</p>
+
+<p>
+\[
+\text{Resolución en bits} = 2^n = TOP + 1 = 256
+\]
+\[
+\text{Resolución en bits} = \log_2{(TOP+1)} =  \log_2{256} = 8bits
+\]
+</p>
+
+<p>
+La resolución en porcentaje se refiere al cambio minimo en el ciclo de trabajo que puede lograrse.
+</p>
+
+<p>
+\[
+\text{Resolución en bits(%)} = \frac{1}{TOP + 1} * 100\% = \frac{1}{256} * 100\% \approx 0.39\%
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8eb2ad3" class="outline-4">
+<h4 id="org8eb2ad3"><span class="section-number-4">1.1.4.</span> Resolucion en mV</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li>Calcule la resolución (en mV) del valor medio de la señal PWM filtrada.</li>
+</ul>
+
+<p>
+\[
+\text{Resolución(mV)} = \frac{V_{ref}}{TOP + 1}
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga62426c" class="outline-4">
+<h4 id="orga62426c"><span class="section-number-4">1.1.5.</span> PWM Phase Correct</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<ul class="org-ul">
+<li>Explique el funcionamiento del modo “PWM Phase Correct”. Muestre cómo lo utilizaría para generar dos señales de la misma frecuencia PWM pero con el ciclo de trabajo de una de ellas 1/3 del ciclo de trabajo de la otra.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgec3154f" class="outline-3">
+<h3 id="orgec3154f"><span class="section-number-3">1.2.</span> Ejercicio No 2: Conversor Analógico – Digital (ADC)</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Haga un diagrama en bloques explicando las distintas partes del módulo ADC integrado en el microcontrolador y enumere las características principales del mismo.</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Explique en qué consiste el algoritmo de aproximaciones sucesivas que utiliza el ADC.</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Grafique la transferencia entrada-salida de un ADC ideal de 3bits y grafique el error de cuantización. Justifique.</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Se desea medir una tensión analógica con el ADC de 10bits, sabiendo que AREF=5V. Muestre como calcular el valor de tensión medido en [mV] a partir de la muestra digital obtenida. Calcule el LSB en mV y en %.</li>
+</ul>
+
+
+
+<ul class="org-ul">
+<li>¿Cuál es el rango de la tensión analógica de entrada? ¿Cuál es la máxima frecuencia de reloj del conversor? ¿Cuál es la máxima frecuencia de muestreo para un solo canal?</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Explique cómo realizar el muestreo de los 8 canales (ADC0 a 7) realizando la conversión en 10 bits. ¿Cuál sería la máxima frecuencia de muestreo que puede obtenerse para cada canal en este caso?</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Muestre cómo se configura y como se utiliza el ADC en modo 8 bits.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org5a8fd87" class="outline-3">
+<h3 id="org5a8fd87"><span class="section-number-3">1.3.</span> EJERCICIOS PARA SIMULAR</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orge1809db" class="outline-4">
+<h4 id="orge1809db"><span class="section-number-4">1.3.1.</span> Ejercicio No 1: PMW</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li>Realice un programa que permita generar una señal PWM con el TIMER 0 del MCU. El valor del ciclo de trabajo (entre 0 y 99%) deberá enviarse al MCU desde la terminal serie. Utilice el modo 7 fast PWM para generar los 100 ciclos de trabajo. Muestre cuales son las posibles frecuencias de PWM en base a la configuración del prescalador, elija uno para su implementación. Simule en Proteus y verifique la señal mediante el osciloscopio.</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Utilizando el modelo de Proteus MOTOR-PWMSERVO, realizar un programa que permita controlar por medio de la técnica PWM el ángulo de giro de un eje entre +90° y -90°. Analizar las propiedades del modelo estándar y determinar la resolución en el control del ángulo que se puede obtener utilizando fast PWM de 16 bits.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgbfac0e2" class="outline-4">
+<h4 id="orgbfac0e2"><span class="section-number-4">1.3.2.</span> Ejercicio No 2: ADC</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ul class="org-ul">
+<li>Realice un programa para tomar muestras del canal ADC3 (PC3) de manera periódica cada 100ms. Para esto deberá configurar adecuadamente el periférico y un temporizador para controlar el periodo de muestreo. El valor medido deberá mostrarse en unidades de mV en un LCD. Para comprobar o simular este comportamiento, utilice una resistencia variable (POT) conectada al terminal ADC3.</li>
+
+<li>Modificar el programa anterior reemplazando la resistencia variable por un sensor de temperatura LM35. Mostrar la temperatura en grados en el LCD cada 1 segundo. Calcular el rango y la resolución de la temperatura a medir con su implementación. Simular en Proteus.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: IacobucciB</p>
+<p class="date">Created: 2024-07-08 lun. 20:55</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
