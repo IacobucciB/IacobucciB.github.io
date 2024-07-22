@@ -1,31 +1,8 @@
 body {
-    background-color: #e1d8ef;
+    background-color: #BDBDBD;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: larger;
-    position: relative;
-}
-
-nav {
-    padding: 1rem;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-nav a {
-    color: #000000;
-    text-decoration: none;
-}
-
-hr {
-    background-color: #f29a30;
-    height: 1px;
-    border-radius: 100%;
+    color: #212121;
 }
 
 h1 {
@@ -33,9 +10,102 @@ h1 {
 }
 
 a {
-    text-decoration: none;
+    color: inherit;
 }
 
-a:hover {
-    text-decoration: underline;
+ul li {
+    list-style: square;
+}
+
+.icon {
+    text-decoration: none;
+    color: #212121;
+    margin: 0 10px;
+}
+
+.icon i {
+    font-size: 2rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: normal;
+    align-content: stretch;
+}
+
+.info {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    margin: 1rem;
+}
+
+.welcome {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    margin: 1rem;
+}
+
+#pfp {
+    border-radius: 100%;
+    max-width: 350px;
+    height: auto;
+    border-color: #DCEDC8;
+    padding: 1rem;
+}
+
+section {
+    background-color: #DCEDC8;
+    border: 1px solid;
+    border-color: #607D8B;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.tech {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+span {
+    background-color: #009688;
+    padding: 0.5rem;
+    border-radius: 2rem;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .info {
+        margin: 0rem;
+    }
+
+    .welcome {
+        margin: 0rem;
+    }
 }

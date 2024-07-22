@@ -1,65 +1,114 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="#E1D8EF">
-    <title>Portafolio Académico</title>
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>IacobucciB</title>
+	<link rel="icon" type="image/x-icon" href="./Tako-pfp.png">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+		integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul id="links">
-                <li><a href="https://iacobuccib.github.io/">Inicio</a></li>
-                <li><a href="https://github.com/IacobucciB">Github</a></li>
-                <li><a href="#">Sobre Mí</a></li>
-                <li><a href="#">CV</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <hr>
+	<div class="container">
 
-    <main>
+		<div class="welcome">
+			<header>
+				<h1>Welcome,</h1>
 
-        <h1>Bienvenido a Mi Portafolio</h1>
-        <section>
-            <p>Ingeniero en formación apasionado por la programación.</p>
-            <p>Aca es donde dejo los distintos proyectos de programacion que hago. Es una forma de documentarlos mas
-                alla de un simple README.md y ofrecer mas contexto sobre el desarrollo de los mismos.</p>
-        </section>
+				<section>
+					<p>I am Iacobucci Juan Bautista</p>
+					<p>Engineering student passionate about programming.</p>
+					<div class="social-icons">
+						<a href="https://github.com/IacobucciB" target="_blank" class="icon">
+							<i class="fab fa-github"></i>
+						</a>
+						<a href="https://www.linkedin.com/in/juan-bautista-iacobucci/" target="_blank" class="icon">
+							<i class="fab fa-linkedin"></i>
+						</a>
+					</div>
+				</section>
+				<img id="pfp" src="./Me-pfp.jpeg" alt="Tako-pfp">
+			</header>
+		</div>
+
+		<div class="info">
+
+			<h1>Projects</h1>
+
+			<section>
+				<h2>Arduino - Embedded C</h2>
+				<p>
+					I have worked on various projects using Embedded C and Arduino, developed with the Atmel Studio
+					suite.
+					These projects include:</p>
+				<ul>
+					<li>RGB LED control</li>
+					<li>Temperature and humidity sensor registering</li>
+					<li>Simple keyboards</li>
+				</ul>
+				<p class="tech"><span>Embedded C</span> <span>Arduino</span> <span>Atmel Studio</span></p>
+			</section>
+
+			<section>
+				<h2>Veterinary Clinic</h2>
+				<p>
+					Collaborative project I carried out with two university colleagues.
+					A complete Veterinary Appointment System developed using the Ruby on Rails framework.
+					This web application serves as an easy-to-use platform that facilitates various functionalities
+					within
+					the veterinary field.
+				</p>
+				<a href="https://github.com/IacobucciB/veterinary-ohmydog-rails">Link to Repository</a>
+				<p class="tech"><span>Ruby on Rails</span> <span>HTML</span> <span>Bootstrap</span>
+					<span>JavaScript</span>
+					<span>PostgreSQL</span>
+				</p>
+
+			</section>
+
+			<section>
+				<h2>Conway's Game of Life</h2>
+				<p>
+					Developed an implementation of Conway's Game of Life using the Godot engine.
+					This project involved creating a simulation of cellular automaton that demonstrates how simple
+					rules
+					can
+					lead to complex behavior.
+				</p>
+				<p class="tech"><span>Godot</span> <span>GDScript</span> <span>2D Game Development</span></p>
+			</section>
 
 
-        <h1>Proyectos</h1>
+		</div>
 
-        <section>
-            <h2>Arduino y C Embebido</h2>
-            <p>Proyectos hechos para la materia "Circuitos Digitales y Microcontroladores". Estos links llevan a la
-                documentacion de los diferentes
-                proyectos, sus respectivos repositorios en Github y videos tipo demonstracion</p>
-            <a href="./atmega/index.html">~ Control de periféricos LED externos con puertos de entrada/salida</a>
-            <br>
-            <a href="#">~ Control de LCD y Teclado, Maquina de Estado Finito y Timers</a>
-        </section>
+	</div>
 
-        <section>
-            <h2>Veterinaria con Ruby on Rails</h2>
-            <p>Proyecto colaborativo que realicé con dos colegas universitarios: un completo Sistema de Citas
-                Veterinarias desarrollado utilizando el framework Ruby on Rails. Esta aplicación web sirve como una
-                plataforma fácil de usar que facilita diversas funcionalidades dentro del ámbito veterinario.</p>
-            <a href="https://github.com/IacobucciB/veterinary-ohmydog-rails">Link al Repositorio</a>
-        </section>
+	<footer>
+		<section>
+			<h2>About Me</h2>
+			<p>
+				I am Iacobucci Juan Bautista, an engineering student passionate about programming and
+				technology.
+				My academic journey has been marked by a strong focus on software development and embedded
+				systems.
+			</p>
+			<p>
+				I strive to create efficient, user-friendly solutions that address real-world problems.
+				I am always eager to learn new technologies and take on challenging tasks to further enhance my
+				skills
+				and knowledge
+				in the field of engineering and programming.
+			</p>
+		</section>
+	</footer>
 
-    </main>
 
-    <footer>
-        <p>&copy; 2024 Iacobucci</p>
-    </footer>
-
-    <script src="./script.js"></script>
+	<script src="./script.js"></script>
 </body>
 
 </html>
