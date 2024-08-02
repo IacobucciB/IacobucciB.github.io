@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+
+    <form action="">
+        <fieldset>
+            <legend>Extended Form</legend>
+
+            <!-- Text Input -->
+            <label>Name: <input type="text" name="name" autocomplete="name" required /></label><br><br>
+
+            <!-- Email Input -->
+            <label>Email: <input type="email" name="email" autocomplete="email" required /></label><br><br>
+
+            <!-- Password Input -->
+            <label>Password: <input type="password" name="password" required /></label><br><br>
+
+            <!-- Radio Buttons -->
+            <label>Gender:</label>
+            <label><input type="radio" name="gender" value="male" /> Male</label>
+            <label><input type="radio" name="gender" value="female" /> Female</label>
+            <label><input type="radio" name="gender" value="other" /> Other</label><br><br>
+
+            <!-- Checkboxes -->
+            <label>Interests:</label>
+            <label><input type="checkbox" name="interests" value="sports" /> Sports</label>
+            <label><input type="checkbox" name="interests" value="music" /> Music</label>
+            <label><input type="checkbox" name="interests" value="reading" /> Reading</label><br><br>
+
+            <!-- Dropdown Menu -->
+            <label>Country:</label>
+            <select name="country">
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="uk">United Kingdom</option>
+                <option value="au">Australia</option>
+                <option value="other">Other</option>
+            </select><br><br>
+
+            <!-- Date Picker -->
+            <label>Date of Birth: <input type="date" name="dob" required /></label><br><br>
+
+            <!-- File Upload -->
+            <label>Upload your profile picture: <input type="file" name="profile-picture"
+                    accept="image/*" /></label><br><br>
+
+            <!-- Number Input -->
+            <label>Age: <input type="number" name="age" min="0" max="120" required /></label><br><br>
+
+            <!-- Range Slider -->
+            <label>Satisfaction Level:</label>
+            <input type="range" name="satisfaction" min="0" max="10" /><br><br>
+
+            <!-- Text Area -->
+            <label>Comments:</label><br>
+            <textarea name="comments" rows="5" cols="40"></textarea><br><br>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+
+            <!-- Reset Button -->
+            <button type="reset">Reset</button>
+        </fieldset>
+    </form>
+
+</body>
+
+</html>

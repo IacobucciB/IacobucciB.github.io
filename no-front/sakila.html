@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakila Database Example</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Sakila Database Example</h1>
+        <p>The Sakila database is a sample database designed for learning and testing purposes. It represents a film
+            rental system and contains several tables related to films, customers, rentals, and more.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Tables</h2>
+            <p>The Sakila database consists of several tables that manage different aspects of the film rental system.
+                Here are some of the key tables:</p>
+            <ul>
+                <li><strong>actor</strong> - Information about actors.</li>
+                <li><strong>category</strong> - Categories of films.</li>
+                <li><strong>customer</strong> - Details of customers.</li>
+                <li><strong>film</strong> - Information about films.</li>
+                <li><strong>rental</strong> - Records of film rentals.</li>
+                <li><strong>staff</strong> - Details of staff members.</li>
+                <li><strong>store</strong> - Information about stores.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Sample Data</h2>
+            <p>Below is an example of sample data from some of the tables:</p>
+
+            <h3>Film Table</h3>
+            <table border="1" width="100%">
+                <tr>
+                    <th>Film ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Release Year</th>
+                    <th>Language ID</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ACADEMY DINOSAUR</td>
+                    <td>A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Gulf of Mexico.
+                    </td>
+                    <td>2006</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ACE GOLDFINGER</td>
+                    <td>A Astounding Epistle of a Database Administrator And a Astronaut who must Battle a Sumo Wrestler
+                        in A U-Boat.</td>
+                    <td>2006</td>
+                    <td>1</td>
+                </tr>
+                <!-- Add more sample data rows as needed -->
+            </table>
+
+            <h3>Customer Table</h3>
+            <table border="1" width="100%">
+                <tr>
+                    <th>Customer ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>MARY</td>
+                    <td>SMITH</td>
+                    <td>mary.smith@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>JOHN</td>
+                    <td>DOE</td>
+                    <td>john.doe@example.com</td>
+                </tr>
+                <!-- Add more sample data rows as needed -->
+            </table>
+        </section>
+
+        <section>
+            <h2>Relationships</h2>
+            <p>The Sakila database tables are related to each other through various foreign keys. Here are some key
+                relationships:</p>
+            <ul>
+                <li><strong>film_actor</strong> - Connects films and actors.</li>
+                <li><strong>inventory</strong> - Connects films and stores.</li>
+                <li><strong>rental</strong> - Connects customers and inventory.</li>
+                <li><strong>payment</strong> - Records payments related to rentals.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>For more information on the Sakila database, visit the <a href="https://dev.mysql.com/doc/sakila/en/"
+                target="_blank">official documentation</a>.</p>
+    </footer>
+
+</body>
+
+</html>
