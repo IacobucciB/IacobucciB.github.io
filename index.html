@@ -1,114 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>IacobucciB</title>
-	<link rel="icon" type="image/x-icon" href="./Tako-pfp.png">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-		integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IacobucciB</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-	<div class="container">
+    <header>
+        <nav>
+            <table width="100%">
+                <tr>
+                    <th><a href="https://github.com/IacobucciB" target="_blank">Github</a></th>
+                    <th><a href="https://www.linkedin.com/in/juan-bautista-iacobucci/" target="_blank">LinkedIn</a></th>
+                </tr>
+            </table>
+        </nav>
 
-		<div class="welcome">
-			<header>
-				<h1>Welcome,</h1>
+        <h1>Welcome,</h1>
+        <section>
+            <p>I am Iacobucci Juan Bautista, an engineering student passionate about programming.</p>
+            <details>
+                <summary>Profile Picture</summary>
+                <img src="pfp-ai.jpg" alt="Profile Picture">
+            </details>
+        </section>
+    </header>
 
-				<section>
-					<p>I am Iacobucci Juan Bautista</p>
-					<p>Engineering student passionate about programming.</p>
-					<div class="social-icons">
-						<a href="https://github.com/IacobucciB" target="_blank" class="icon">
-							<i class="fab fa-github"></i>
-						</a>
-						<a href="https://www.linkedin.com/in/juan-bautista-iacobucci/" target="_blank" class="icon">
-							<i class="fab fa-linkedin"></i>
-						</a>
-					</div>
-				</section>
-				<img id="pfp" src="./Tako-pfp.png" alt="Tako-pfp">
-			</header>
-		</div>
+    <main>
+        <section>
+            <h2>Projects</h2>
 
-		<div class="info">
+            <article>
+                <h3>Embedded C - Arduino</h3>
+                <p>
+                    I have worked on various projects using Embedded C and Arduino, developed with the Atmel Studio
+                    suite. These projects include:
+                </p>
+                <ul>
+                    <li>LED control</li>
+                    <li>Temperature and humidity sensor registering</li>
+                    <li>A Keyboard</li>
+                    <li>RGB Lights control</li>
+                </ul>
+            </article>
 
-			<h1>Projects</h1>
+            <article>
+                <h3>Veterinary Clinic</h3>
+                <p>
+                    A complete Veterinary Appointment System developed using the Ruby on Rails framework.
+                    Collaborative project carried out with two university colleagues.
+                    This web application serves as an easy-to-use platform that facilitates various functionalities
+                    within the veterinary field.
+                </p>
+                <p><a href="https://github.com/IacobucciB/veterinary-ohmydog-rails">Link to Repository</a></p>
+            </article>
 
-			<section>
-				<h2>Arduino - Embedded C</h2>
-				<p>
-					I have worked on various projects using Embedded C and Arduino, developed with the Atmel Studio
-					suite.
-					These projects include:</p>
-				<ul>
-					<li>RGB LED control</li>
-					<li>Temperature and humidity sensor registering</li>
-					<li>Simple keyboards</li>
-				</ul>
-				<p class="tech"><span>Embedded C</span> <span>Arduino</span> <span>Atmel Studio</span></p>
-			</section>
+            <article>
+                <h3>Conway's Game of Life</h3>
+                <p>
+                    Developed an implementation of Conway's Game of Life using the Godot engine. This project involved
+                    creating a simulation of cellular automaton that demonstrates how simple rules can lead to complex
+                    behavior.
+                </p>
+            </article>
+        </section>
+    </main>
 
-			<section>
-				<h2>Veterinary Clinic</h2>
-				<p>
-					Collaborative project I carried out with two university colleagues.
-					A complete Veterinary Appointment System developed using the Ruby on Rails framework.
-					This web application serves as an easy-to-use platform that facilitates various functionalities
-					within
-					the veterinary field.
-				</p>
-				<a href="https://github.com/IacobucciB/veterinary-ohmydog-rails">Link to Repository</a>
-				<p class="tech"><span>Ruby on Rails</span> <span>HTML</span> <span>Bootstrap</span>
-					<span>JavaScript</span>
-					<span>PostgreSQL</span>
-				</p>
+    <footer>
+        <section>
+            <h2>About Me</h2>
+            <p>
+                I am Iacobucci Juan Bautista, an engineering student passionate about programming and technology. My
+                academic journey has been marked by a strong focus on software development and embedded systems.
+            </p>
+            <p>
+                I strive to create efficient, user-friendly solutions that address real-world problems. I am always
+                eager to learn new technologies and take on challenging tasks to further enhance my skills and knowledge
+                in the field of engineering and programming.
+            </p>
+        </section>
+    </footer>
 
-			</section>
-
-			<section>
-				<h2>Conway's Game of Life</h2>
-				<p>
-					Developed an implementation of Conway's Game of Life using the Godot engine.
-					This project involved creating a simulation of cellular automaton that demonstrates how simple
-					rules
-					can
-					lead to complex behavior.
-				</p>
-				<p class="tech"><span>Godot</span> <span>GDScript</span> <span>2D Game Development</span></p>
-			</section>
-
-
-		</div>
-
-	</div>
-
-	<footer>
-		<section>
-			<h2>About Me</h2>
-			<p>
-				I am Iacobucci Juan Bautista, an engineering student passionate about programming and
-				technology.
-				My academic journey has been marked by a strong focus on software development and embedded
-				systems.
-			</p>
-			<p>
-				I strive to create efficient, user-friendly solutions that address real-world problems.
-				I am always eager to learn new technologies and take on challenging tasks to further enhance my
-				skills
-				and knowledge
-				in the field of engineering and programming.
-			</p>
-		</section>
-	</footer>
-
-
-	<script src="./script.js"></script>
 </body>
 
 </html>
