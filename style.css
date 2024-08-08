@@ -4,14 +4,16 @@ body {
     font-size: large;
 }
 
-th, td {
+th,
+td {
     text-align: center;
     border: 1px solid black;
     border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
-th:hover, td:hover {
+th:hover,
+td:hover {
     background-color: #DCEDC8;
 }
 
@@ -29,7 +31,13 @@ nav a {
     text-decoration: none;
 }
 
-nav a:visited, nav a:hover, nav a:active {
+a:visited {
+    color: inherit;
+}
+
+nav a:visited,
+nav a:hover,
+nav a:active {
     color: inherit;
 }
 
