@@ -14,7 +14,7 @@
             align-items: flex-end;
             margin-top: 50px;
             position: relative;
-            height: 300px;
+            height: 647px;
             border: 1px solid #ddd;
         }
 
@@ -68,7 +68,7 @@
             height: 647px;
             position: absolute;
             cursor: move;
-            animation: scrollGroupImage 10s linear infinite;
+            animation: scrollGroupImage 30s linear infinite;
         }
 
         #userImageInGroup {
@@ -274,7 +274,7 @@
         function adjustUserImageInGroup(userHeight) {
             const userImageInGroup = document.getElementById('userImageInGroup');
             const groupImage = document.getElementById('groupImage');
-            const groupImageHeight = groupImage.clientHeight;
+            const groupImageHeight = 600;
             const maxTalentHeight = 190; // Altura máxima en cm para la escala de la imagen
 
             // Calcular la altura de la imagen del usuario en el grupo
@@ -282,14 +282,15 @@
 
             // Establecer el alto y el ancho de la imagen del usuario
             userImageInGroup.style.height = `${userImageHeightInGroup}px`;
-            console.log(userImageHeightInGroup)
+			console.log(userImageHeightInGroup)
+
             // Definir una variable CSS personalizada para el ancho de la imagen del usuario
             //userImageInGroup.style.setProperty('--user-image-width', `${userImageInGroup.clientWidth}px`);
             //groupImage.style.setProperty('--user-image-width', `${groupImage.clientWidth}px`);
 
             // Opcional: Establecer la posición inicial para asegurar que esté en el contenedor
             userImageInGroup.style.left = '0';
-            userImage.style.bottom = '500px';
+			userImageInGroup.style.bottom = '15px';
         }
 
 
@@ -336,15 +337,15 @@
 
             talentImage.src = `talentos/${selectedTalent}.png`;
 
-            const maxTalentHeight = 180;
-            const maxImageHeight = 300;
+            const maxTalentHeight = 190;
+            const maxImageHeight = 600;
             const userImageHeight = (userHeight / maxTalentHeight) * maxImageHeight;
 
             userImage.style.height = `${userImageHeight}px`;
 
             talentImage.style.left = '10%';
             userImage.style.left = '60%';
-
+			userImage.style.bottom = '15px';
             adjustUserImageInGroup(userHeight);
         }
         let isAnimationRunning = true;
