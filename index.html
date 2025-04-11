@@ -1,245 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iacobucci Juan Bautista - Portfolio</title>
     <link rel="icon" href="Tako-pfp.png" type="image/png">
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // Ninomae Ina'nis inspired color palette
-                        primary: '#6759a7', // Deep purple
-                        primaryDark: '#42397d',
-                        primaryLight: '#8a7bc8',
-                        accent: '#b496ff', // Light purple accent
-                        dark: '#0e0a1f', // Very dark blue/purple
-                        darkSurface: '#1a1635',
-                        darkElevated: '#251e42',
-                        lightText: '#e6e1ff',
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
 
-<body class="bg-dark text-lightText min-h-screen">
-    <!-- Navigation -->
-    <nav class="bg-darkElevated shadow-lg sticky top-0 z-10">
-        <div class="container mx-auto max-w-4xl flex flex-col sm:flex-row justify-between items-center p-4">
-            <div class="flex items-center mb-4 sm:mb-0">
-                <img src="Tako-pfp.png" alt="Profile Picture" class="h-12 w-12 rounded-full mr-3 border-2 border-accent">
-                <h1 class="text-xl font-bold text-accent">Iacobucci Juan Bautista</h1>
-            </div>
-            <div class="flex space-x-4">
-                <a href="https://github.com/IacobucciB" class="text-lightText hover:text-accent transition-colors">
-                    <i class="fab fa-github text-xl"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/juan-bautista-iacobucci/" class="text-lightText hover:text-accent transition-colors">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-            </div>
-        </div>
-    </nav>
+  </head>
 
-    <!-- Hero Section -->
-    <section class="py-12 bg-darkSurface">
-        <div class="container mx-auto max-w-4xl px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/3 flex justify-center mb-8 md:mb-0">
-                <img src="Tako-pfp.png" alt="Profile Picture" class="w-48 h-48 rounded-full border-4 border-accent shadow-lg p-1 bg-darkElevated">
-            </div>
-            <div class="md:w-2/3 md:pl-8">
-                <h2 class="text-3xl font-bold mb-4">Hi there 👋</h2>
-                <p class="mb-6 text-lg">
-                    I am Iacobucci Juan Bautista, an engineering student with a deep passion for programming and technology. 
-                    My academic and personal projects reflect a strong focus on software development and embedded systems.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Embedded C</span>
-                    <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Arduino</span>
-                    <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Ruby on Rails</span>
-                    <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Godot Engine</span>
-                    <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">Signal Processing</span>
-                </div>
-            </div>
-        </div>
+  <body>
+
+    <h1>Iacobucci Juan Bautista</h1>
+
+    <a href="https://github.com/IacobucciB">Github</a>
+    <a href="https://www.linkedin.com/in/juan-bautista-iacobucci/">Linkedin</a>
+
+    <section>
+      <img src="Tako-pfp.png" alt="Profile Picture">
+
+      <h2>Hi there</h2>
+      <p>
+        I am Iacobucci Juan Bautista, an engineering student with a deep passion for programming and technology. 
+        My academic and personal projects reflect a strong focus on software development and embedded systems.
+      </p>
+      <p>
+        <span>Embedded C</span>
+        <span>Arduino</span>
+        <span>Ruby on Rails</span>
+        <span>Godot Engine</span>
+        <span>Signal Processing</span>
+      </p>
     </section>
 
-    <!-- About Me Section -->
-    <section class="py-12">
-        <div class="container mx-auto max-w-4xl px-4">
-            <h2 class="text-2xl font-bold mb-6 text-accent">About Me</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4 text-primary">What I'm Doing</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start bg-darkElevated p-3 rounded-lg">
-                            <i class="fas fa-rocket text-accent mt-1 mr-3"></i>
-                            <div>
-                                <strong class="text-accent">Current Focus:</strong> Projects involving Embedded C with Arduino and creating simulations and applications
-                            </div>
-                        </li>
-                        <li class="flex items-start bg-darkElevated p-3 rounded-lg">
-                            <i class="fas fa-book text-accent mt-1 mr-3"></i>
-                            <div>
-                                <strong class="text-accent">Learning:</strong> Enhancing skills in Spring Framework and exploring advanced techniques in signal processing and web development
-                            </div>
-                        </li>
-                        <li class="flex items-start bg-darkElevated p-3 rounded-lg">
-                            <i class="fas fa-handshake text-accent mt-1 mr-3"></i>
-                            <div>
-                                <strong class="text-accent">Collaboration:</strong> Open to innovative software projects, particularly embedded systems and simulation technologies
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4 text-primary">Languages</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start bg-darkElevated p-3 rounded-lg">
-                            <span class="text-xl mr-3">🇪🇸</span>
-                            <div>
-                                <strong class="text-accent">Spanish:</strong> Native language
-                            </div>
-                        </li>
-                        <li class="flex items-start bg-darkElevated p-3 rounded-lg">
-                            <span class="text-xl mr-3">🇬🇧</span>
-                            <div>
-                                <strong class="text-accent">English:</strong> Proficient, primary language for online content and professional communication
-                            </div>
-                        </li>
-                        <li class="flex items-start bg-darkElevated p-3 rounded-lg">
-                            <span class="text-xl mr-3">🇯🇵</span>
-                            <div>
-                                <strong class="text-accent">Japanese:</strong> Studying as a hobby, provides a relaxing break from tech projects
-                            </div>
-                        </li>
-                    </ul>
+    <section>
+      <h2>About Me</h2>
+      
+      <h3>What I'm Doing</h3>
+      <ul>
+        <li>
+          <strong>Current Focus:</strong> Projects involving Embedded C with Arduino and creating simulations and applications
+        </li>
+        <li>
+          <strong>Learning:</strong> Enhancing skills in Spring Framework and exploring advanced techniques in signal processing and web development
+        </li>
+        <li>
+          <strong>Collaboration:</strong> Open to innovative software projects, particularly embedded systems and simulation technologies
+        </li>
+      </ul>
 
-                    <div class="mt-6 p-4 bg-primaryDark rounded-lg shadow-lg border-2 border-accent">
-                        <h4 class="font-semibold text-accent mb-2">⚡ Fun Fact</h4>
-                        <p>I can code while listening to music in three different languages—Spanish, English, and Japanese. It helps me stay focused and inspired! 🎶</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <h3>Languages</h3>
+      <ul>
+        <li>
+          <strong>Spanish:</strong> Native language
+        </li>
+        <li>
+          <strong>English:</strong> Proficient, primary language for online content and professional communication
+        </li>
+        <li>
+          <strong>Japanese:</strong> Studying as a hobby, provides a relaxing break from tech projects
+        </li>
+      </ul>
+
+      <h4>Fun Fact</h4>
+      <p>I can code while listening to music in three different languages—Spanish, English, and Japanese. It helps me stay focused and inspired!</p>
     </section>
 
-    <!-- Projects Section -->
-    <section class="py-12 bg-darkSurface">
-        <div class="container mx-auto max-w-4xl px-4">
-            <h2 class="text-2xl font-bold mb-6 text-accent">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Project 1 -->
-                <div class="bg-darkElevated p-6 rounded-lg shadow-lg border-l-4 border-accent h-full transform hover:-translate-y-1 transition-transform">
-                    <h3 class="text-xl font-bold mb-2 text-accent">Enigma Machine Replica</h3>
-                    <p class="mb-4">Built a replica of the Enigma machine using the EDU-CIAA board, programmed in C, and designed a custom PCB for it.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">Embedded C</span>
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">Hardware</span>
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">PCB Design</span>
-                    </div>
-                    <a href="https://github.com/IacobucciB/EnigmaMachine-Embedded" class="text-accent hover:text-primaryLight flex items-center">
-                        <i class="fab fa-github mr-2"></i> View on GitHub
-                    </a>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="bg-darkElevated p-6 rounded-lg shadow-lg border-l-4 border-accent h-full transform hover:-translate-y-1 transition-transform">
-                    <h3 class="text-xl font-bold mb-2 text-accent">Veterinary Appointment System</h3>
-                    <p class="mb-4">A complete veterinary clinic management system developed with Ruby on Rails for scheduling and managing appointments.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">Ruby on Rails</span>
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">Web Development</span>
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">Database</span>
-                    </div>
-                    <a href="https://github.com/IacobucciB/veterinary-ohmydog-rails" class="text-accent hover:text-primaryLight flex items-center">
-                        <i class="fab fa-github mr-2"></i> View on GitHub
-                    </a>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="bg-darkElevated p-6 rounded-lg shadow-lg border-l-4 border-accent h-full transform hover:-translate-y-1 transition-transform">
-                    <h3 class="text-xl font-bold mb-2 text-accent">Conway's Game of Life</h3>
-                    <p class="mb-4">Implemented Conway's Game of Life using the Godot engine, demonstrating how simple rules can create complex behavior.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">Godot</span>
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">Game Development</span>
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">Simulation</span>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="bg-darkElevated p-6 rounded-lg shadow-lg border-l-4 border-accent h-full transform hover:-translate-y-1 transition-transform">
-                    <h3 class="text-xl font-bold mb-2 text-accent">Arduino Projects Collection</h3>
-                    <p class="mb-4">Collection of various Arduino-based projects including a PS/2 keyboard prototype, LED control systems, and temperature/humidity sensors.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">Arduino</span>
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">C/C++</span>
-                        <span class="px-2 py-1 bg-primaryDark text-lightText rounded text-xs">IoT</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section>
+      <h2>Projects</h2>
+      
+      <article>
+        <h3>Enigma Machine Replica</h3>
+        <p>Built a replica of the Enigma machine using the EDU-CIAA board, programmed in C, and designed a custom PCB for it.</p>
+        <p>
+          <span>Embedded C</span>
+          <span>Hardware</span>
+          <span>PCB Design</span>
+        </p>
+        <a href="https://github.com/IacobucciB/EnigmaMachine-Embedded">View on GitHub</a>
+      </article>
+      
+      <article>
+        <h3>Veterinary Appointment System</h3>
+        <p>A complete veterinary clinic management system developed with Ruby on Rails for scheduling and managing appointments.</p>
+        <p>
+          <span>Ruby on Rails</span>
+          <span>Web Development</span>
+          <span>Database</span>
+        </p>
+        <a href="https://github.com/IacobucciB/veterinary-ohmydog-rails">View on GitHub</a>
+      </article>
+      
+      <article>
+        <h3>Conway's Game of Life</h3>
+        <p>Implemented Conway's Game of Life using the Godot engine, demonstrating how simple rules can create complex behavior.</p>
+        <p>
+          <span>Godot</span>
+          <span>Game Development</span>
+          <span>Simulation</span>
+        </p>
+      </article>
+      
+      <article>
+        <h3>Arduino Projects Collection</h3>
+        <p>Collection of various Arduino-based projects including a PS/2 keyboard prototype, LED control systems, and temperature/humidity sensors.</p>
+        <p>
+          <span>Arduino</span>
+          <span>C/C++</span>
+          <span>IoT</span>
+        </p>
+      </article>
     </section>
 
-    <!-- GitHub Projects Section -->
-    <section class="py-12">
-        <div class="container mx-auto max-w-4xl px-4">
-            <h2 class="text-2xl font-bold mb-6 text-accent">GitHub Pages Projects</h2>
-            <div class="mb-6">
-                <p class="mb-4">Here are some of my static web projects hosted on GitHub Pages:</p>
-                <div class="bg-primary bg-opacity-20 rounded-lg shadow-lg overflow-hidden">
-                    <div class="p-4 border-l-4 border-accent">
-                        <h3 class="text-xl font-bold mb-2 text-accent">Hololive Heights Tool</h3>
-                        <p class="mb-4">A web tool for comparing heights of Hololive VTubers.</p>
-                        <a href="./holo-height/index.html" class="inline-block bg-primary hover:bg-primaryDark text-white font-bold py-2 px-4 rounded transition-colors">
-                            View Project
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-8">
-                <a href="https://github.com/IacobucciB" class="inline-flex items-center bg-accent hover:bg-primaryLight text-dark hover:text-dark font-bold py-3 px-6 rounded-lg transition-colors">
-                    <i class="fab fa-github mr-2 text-xl"></i> View All Projects on GitHub
-                </a>
-            </div>
-        </div>
+    <section>
+      <h2>GitHub Pages Projects</h2>
+      <p>Here are some of my static web projects hosted on GitHub Pages:</p>
+      
+      <article>
+        <h3>Hololive Heights Tool</h3>
+        <p>A web tool for comparing heights of Hololive VTubers.</p>
+        <a href="./holo-height/index.html">View Project</a>
+      </article>
+      
+      <p>
+        <a href="https://github.com/IacobucciB">View All Projects on GitHub</a>
+      </p>
     </section>
 
-    <!-- Contact Section -->
-    <section class="py-12 bg-darkSurface">
-        <div class="container mx-auto max-w-4xl px-4">
-            <h2 class="text-2xl font-bold mb-6 text-accent">Connect With Me</h2>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a href="https://github.com/IacobucciB" class="group flex flex-col items-center">
-                    <div class="w-16 h-16 bg-darkElevated flex items-center justify-center rounded-full mb-2 group-hover:bg-accent transition-colors">
-                        <i class="fab fa-github text-2xl group-hover:text-dark"></i>
-                    </div>
-                    <span class="group-hover:text-accent transition-colors">GitHub</span>
-                </a>
-                <a href="https://www.linkedin.com/in/juan-bautista-iacobucci/" class="group flex flex-col items-center">
-                    <div class="w-16 h-16 bg-darkElevated flex items-center justify-center rounded-full mb-2 group-hover:bg-accent transition-colors">
-                        <i class="fab fa-linkedin text-2xl group-hover:text-dark"></i>
-                    </div>
-                    <span class="group-hover:text-accent transition-colors">LinkedIn</span>
-                </a>
-            </div>
-        </div>
+    <section>
+      <h2>Connect With Me</h2>
+      <p>
+        <a href="https://github.com/IacobucciB">GitHub</a>
+        <a href="https://www.linkedin.com/in/juan-bautista-iacobucci/">LinkedIn</a>
+      </p>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-darkElevated py-4 text-center">
-        <div class="container mx-auto max-w-4xl px-4">
-            <p class="text-sm text-gray-400">Built with TailwindCSS and a passion for technology.</p>
-        </div>
+    <footer>
+      <p>Built with a passion for technology.</p>
     </footer>
-</body>
+  </body>
 </html>
