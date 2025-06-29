@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iacobucci Juan Bautista - Portfolio</title>
     <link rel="icon" href="Tako-pfp.png" type="image/png">
-
+    <link rel="stylesheet" href="./normalize.css" media="screen"/>
+    <link rel="stylesheet" href="./sakura-dark.css" media="screen and (prefers-color-scheme: dark)"/>
+    <style>
+     a {
+       color: #00AA8D;
+     }
+    </style>
   </head>
 
   <body>
@@ -16,100 +22,65 @@
     <a href="https://www.linkedin.com/in/juan-bautista-iacobucci/">Linkedin</a>
 
     <section>
-      <img src="Tako-pfp.png" alt="Profile Picture">
+      <center>
+	<img src="Tako-pfp.png" alt="Profile Picture">
+      </center>
+      <h2>Welcome</h2>
+      <p>
+        My name is Iacobucci Juan Bautista. I am a Computer Engineering student at the National University of La Plata (UNLP). My academic work and personal projects are focused on software development and embedded systems.
+      </p>
 
-      <h2>Hi there</h2>
-      <p>
-        I am Iacobucci Juan Bautista, an engineering student with a deep passion for programming and technology. 
-        My academic and personal projects reflect a strong focus on software development and embedded systems.
-      </p>
-      <p>
-        <span>Embedded C</span>
-        <span>Arduino</span>
-        <span>Ruby on Rails</span>
-        <span>Godot Engine</span>
-        <span>Signal Processing</span>
-      </p>
     </section>
 
     <section>
-      <h2>About Me</h2>
-      
-      <h3>What I'm Doing</h3>
-      <ul>
-        <li>
-          <strong>Current Focus:</strong> Projects involving Embedded C with Arduino and creating simulations and applications
-        </li>
-        <li>
-          <strong>Learning:</strong> Enhancing skills in Spring Framework and exploring advanced techniques in signal processing and web development
-        </li>
-        <li>
-          <strong>Collaboration:</strong> Open to innovative software projects, particularly embedded systems and simulation technologies
-        </li>
-      </ul>
 
-      <h3>Languages</h3>
-      <ul>
-        <li>
-          <strong>Spanish:</strong> Native language
-        </li>
-        <li>
-          <strong>English:</strong> Proficient, primary language for online content and professional communication
-        </li>
-        <li>
-          <strong>Japanese:</strong> Studying as a hobby, provides a relaxing break from tech projects
-        </li>
-      </ul>
-
-      <h4>Fun Fact</h4>
-      <p>I can code while listening to music in three different languages—Spanish, English, and Japanese. It helps me stay focused and inspired!</p>
-    </section>
-
-    <section>
       <h2>Projects</h2>
+
+      <article>
+	<h3>University Sports Event Management System (C# & .NET)</h3>
+	<p>This is a .NET project built using the Clean Architecture approach. It features a web interface developed with Blazor and uses SQLite as the database engine.</p>
+	<a href="https://github.com/IacobucciB/SG-CentroDeportivoUniversitario-NET">Link to Repository</a>
+      </article>
       
       <article>
         <h3>Enigma Machine Replica</h3>
-        <p>Built a replica of the Enigma machine using the EDU-CIAA board, programmed in C, and designed a custom PCB for it.</p>
-        <p>
-          <span>Embedded C</span>
-          <span>Hardware</span>
-          <span>PCB Design</span>
-        </p>
-        <a href="https://github.com/IacobucciB/EnigmaMachine-Embedded">View on GitHub</a>
+        <p>This project is a functional replica of the Enigma machine, implemented on the EDU-CIAA board. It was programmed in C and includes a custom-designed PCB.</p>
+        <a href="https://github.com/IacobucciB/EnigmaMachine-Embedded">Link to Repository</a>
+      </article>
+
+      <article>
+	<h3>Arduino</h3>
+	<ul>
+
+	  <li>LED Blinking:</li>
+	  A basic example to control digital outputs by blinking LEDs at regular intervals.
+	  <br>
+	  <a href="https://github.com/IacobucciB/CDyM-TP1-2024-G1-LEDs">Link to Repository</a>
+
+	  <li>LCD and Alphanumeric Keypad</li>
+	  Integration of a 16x2 LCD display and a matrix keypad for user interaction and display output.
+	  <br>
+	  <a href="https://github.com/IacobucciB/CDyM-TP2-2024-G1-LCD-y-Teclado">Link to Repository</a>
+
+
+	  <li>DHT11 Sensor and RTC DS3231</li>
+	  A system that reads temperature and humidity using the DHT11 sensor and displays real-time data from the DS3231 clock. Communication with a serial terminal is handled via UART and I2C.
+	  <br>
+	  <a href="https://github.com/IacobucciB/CDyM-TP3-2024-G1-Sensores">Link to Repository</a>
+
+	  <li>RGB LED with PWM and ADC</li>
+	  Controls the color of an RGB LED using PWM, with input from an analog sensor read via the ADC to vary colors dynamically.
+	  <br>
+	  <a href="https://github.com/IacobucciB/CDyM-TP4-2024-G1-PWM-ADC">Link to Repository</a>
+	    
+	</ul>
       </article>
       
       <article>
         <h3>Veterinary Appointment System</h3>
         <p>A complete veterinary clinic management system developed with Ruby on Rails for scheduling and managing appointments.</p>
-        <p>
-          <span>Ruby on Rails</span>
-          <span>Web Development</span>
-          <span>Database</span>
-        </p>
-        <a href="https://github.com/IacobucciB/veterinary-ohmydog-rails">View on GitHub</a>
+        <a href="https://github.com/IacobucciB/veterinary-ohmydog-rails">Link to Repository</a>
       </article>
-      
-      <article>
-        <h3>Conway's Game of Life</h3>
-        <p>Implemented Conway's Game of Life using the Godot engine, demonstrating how simple rules can create complex behavior.</p>
-        <p>
-          <span>Godot</span>
-          <span>Game Development</span>
-          <span>Simulation</span>
-        </p>
-      </article>
-      
-      <article>
-        <h3>Arduino Projects Collection</h3>
-        <p>Collection of various Arduino-based projects including a PS/2 keyboard prototype, LED control systems, and temperature/humidity sensors.</p>
-        <p>
-          <span>Arduino</span>
-          <span>C/C++</span>
-          <span>IoT</span>
-        </p>
-      </article>
-    </section>
 
     <section>
       <h2>GitHub Pages Projects</h2>
@@ -121,9 +92,6 @@
         <a href="./holo-height/index.html">View Project</a>
       </article>
       
-      <p>
-        <a href="https://github.com/IacobucciB">View All Projects on GitHub</a>
-      </p>
     </section>
 
     <section>
@@ -135,7 +103,7 @@
     </section>
 
     <footer>
-      <p>Built with a passion for technology.</p>
+
     </footer>
   </body>
 </html>
