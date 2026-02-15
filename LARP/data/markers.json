@@ -1,0 +1,11 @@
+[
+  {
+    "id": "city_center",
+    "title": "Centro de la Ciudad de La Plata",
+    "lat": -34.9214,
+    "lng": -57.9544,
+    "icon": "icon.jpg",
+    "iconSize": [40,40],
+    "content": "Capital de la Provincia de Buenos Aires, fundada en 1882.<br><br>Lat: -34.9214<br>Lng: -57.9544"
+  }
+]

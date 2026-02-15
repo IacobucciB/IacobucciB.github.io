@@ -137,65 +137,87 @@ h1 {
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const center = [-34.9214, -57.9544];
+
 const map = L.map("map").setView(center, 13);
+
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution: "&copy; OpenStreetMap contributors"
+  maxZoom: 19
 }).addTo(map);
 
-// Modal helpers
-const centerModal = document.getElementById("centerModal");
-const polygonModal = document.getElementById("polygonModal");
+/* =========================
+   GENERIC MODAL FACTORY
+========================= */
 
-function openCenterModal() {
-  centerModal.showModal();
-}
-function closeCenterModal() {
-  centerModal.close();
+function createModal(id, title, content) {
+  const dialog = document.createElement("dialog");
+  dialog.id = id;
+
+  dialog.innerHTML = `
+    <article>
+      <header><strong>${title}</strong></header>
+      <p>${content}</p>
+      <footer>
+        <button onclick="document.getElementById('${id}').close()">Cerrar</button>
+      </footer>
+    </article>
+  `;
+
+  document.body.appendChild(dialog);
+  return dialog;
 }
 
-function openPolygonModal() {
-  polygonModal.showModal();
-}
-function closePolygonModal() {
-  polygonModal.close();
-}
+/* =========================
+   LOAD MARKERS
+========================= */
 
-// Crear ícono personalizado
-const customIcon = L.icon({
-  iconUrl: 'icon.jpg', // Reemplaza con la URL de tu imagen
-  iconSize: [40, 40],     // Tamaño del ícono [ancho, alto]
-  iconAnchor: [20, 40],   // Punto del ícono que corresponde a la posición del marker [x, y]
-  popupAnchor: [0, -40]   // Punto desde donde se abre el popup relativo al iconAnchor
+fetch("./data/markers.json")
+.then(r => r.json())
+.then(markers => {
+
+  markers.forEach(m => {
+
+    const modal = createModal(m.id, m.title, m.content);
+
+    const icon = L.icon({
+      iconUrl: m.icon,
+      iconSize: m.iconSize,
+      iconAnchor: [m.iconSize[0]/2, m.iconSize[1]],
+      popupAnchor: [0, -m.iconSize[1]]
+    });
+
+    L.marker([m.lat, m.lng], {icon})
+      .addTo(map)
+      .on("click", () => modal.showModal());
+  });
+
 });
 
-// Marker central con ícono personalizado - abre su propio modal
-L.marker(center, {icon: customIcon})
-  .addTo(map)
-  .on('click', openCenterModal);
+/* =========================
+   LOAD POLYGONS
+========================= */
 
-// Cuadrado rotado definido manualmente
-const square = [
-  [-34.888611, -57.956778],
-  [-34.923111, -57.993583],
-  [-34.953556, -57.952694],
-  [-34.919889, -57.915444]
-];
+fetch("./data/polygons.json")
+.then(r => r.json())
+.then(polygons => {
 
-// Polígono verde transparente - abre su propio modal
-L.polygon(square, {
-  color: "green",
-  weight: 2,
-  fillColor: "green",
-  fillOpacity: 0.25
-})
-.addTo(map)
-.on('click', openPolygonModal);
+  polygons.forEach(p => {
 
-// Invalidar el tamaño del mapa después de que se cargue (para responsive)
-setTimeout(function() {
-  map.invalidateSize();
-}, 100);
+    const modal = createModal(p.id, p.title, p.content);
+
+    L.polygon(p.points, {
+      color: p.color,
+      fillColor: p.color,
+      fillOpacity: p.opacity
+    })
+    .addTo(map)
+    .on("click", () => modal.showModal());
+  });
+
+});
+
+/* Fix responsive */
+setTimeout(() => map.invalidateSize(), 100);
 </script>
+
 </body>
 </html>

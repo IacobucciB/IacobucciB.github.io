@@ -1,0 +1,15 @@
+[
+  {
+    "id": "casco",
+    "title": "Área del Casco Urbano",
+    "color": "green",
+    "opacity": 0.25,
+    "points": [
+      [-34.888611, -57.956778],
+      [-34.923111, -57.993583],
+      [-34.953556, -57.952694],
+      [-34.919889, -57.915444]
+    ],
+    "content": "Este polígono representa el casco urbano fundacional de La Plata."
+  }
+]
