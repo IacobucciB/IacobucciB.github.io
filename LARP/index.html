@@ -88,11 +88,12 @@ h1 {
   <h1>LARP</h1>
   <div id="map"></div>
 </div>
-<!-- Modal -->
-<dialog id="cityModal">
+
+<!-- Modal para el Centro de la Ciudad -->
+<dialog id="centerModal">
   <article>
     <header>
-      <strong>Ciudad de La Plata</strong>
+      <strong>Centro de la Ciudad de La Plata</strong>
     </header>
     <p>
       Capital de la Provincia de Buenos Aires, fundada en 1882.
@@ -107,10 +108,32 @@ h1 {
       Lng: -57.9544
     </p>
     <footer>
-      <button onclick="closeModal()">Cerrar</button>
+      <button onclick="closeCenterModal()">Cerrar</button>
     </footer>
   </article>
 </dialog>
+
+<!-- Modal para el Polígono -->
+<dialog id="polygonModal">
+  <article>
+    <header>
+      <strong>Área del Casco Urbano</strong>
+    </header>
+    <p>
+      Este polígono representa el casco urbano fundacional de La Plata,
+      conocido por su diseño urbanístico único en forma de cuadrado
+      con diagonales que convergen en la Plaza Moreno.
+    </p>
+    <p>
+      El trazado fue diseñado por el arquitecto Pedro Benoit y es
+      considerado Patrimonio Cultural de la Humanidad por la UNESCO.
+    </p>
+    <footer>
+      <button onclick="closePolygonModal()">Cerrar</button>
+    </footer>
+  </article>
+</dialog>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const center = [-34.9214, -57.9544];
@@ -121,12 +144,21 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 // Modal helpers
-const modal = document.getElementById("cityModal");
-function openModal() {
-  modal.showModal();
+const centerModal = document.getElementById("centerModal");
+const polygonModal = document.getElementById("polygonModal");
+
+function openCenterModal() {
+  centerModal.showModal();
 }
-function closeModal() {
-  modal.close();
+function closeCenterModal() {
+  centerModal.close();
+}
+
+function openPolygonModal() {
+  polygonModal.showModal();
+}
+function closePolygonModal() {
+  polygonModal.close();
 }
 
 // Crear ícono personalizado
@@ -137,10 +169,10 @@ const customIcon = L.icon({
   popupAnchor: [0, -40]   // Punto desde donde se abre el popup relativo al iconAnchor
 });
 
-// Marker central con ícono personalizado - abre modal directamente al hacer clic
+// Marker central con ícono personalizado - abre su propio modal
 L.marker(center, {icon: customIcon})
   .addTo(map)
-  .on('click', openModal);
+  .on('click', openCenterModal);
 
 // Cuadrado rotado definido manualmente
 const square = [
@@ -150,7 +182,7 @@ const square = [
   [-34.919889, -57.915444]
 ];
 
-// Polígono verde transparente - abre modal directamente al hacer clic
+// Polígono verde transparente - abre su propio modal
 L.polygon(square, {
   color: "green",
   weight: 2,
@@ -158,7 +190,7 @@ L.polygon(square, {
   fillOpacity: 0.25
 })
 .addTo(map)
-.on('click', openModal);
+.on('click', openPolygonModal);
 
 // Invalidar el tamaño del mapa después de que se cargue (para responsive)
 setTimeout(function() {
