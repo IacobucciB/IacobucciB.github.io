@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LARP</title>
+<!-- Leaflet -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<!-- Pico.css (CSS ligero) -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@picocss/pico@1/css/pico.min.css"
+/>
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+/* wrapper central */
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+/* título */
+h1 {
+  margin: 0;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+/* mapa rectangular - responsive */
+#map {
+  width: 90vw;
+  max-width: 900px;
+  height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.15);
+}
+
+/* En móviles: más alto que ancho */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 1rem;
+  }
+  
+  #map {
+    width: 90vw;
+    height: 70vh;
+    max-height: 600px;
+  }
+}
+
+/* FIX Leaflet + Pico */
+.leaflet-control button,
+.leaflet-bar a {
+  all: unset;
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 18px;
+}
+.leaflet-bar {
+  box-shadow: none;
+}
+.leaflet-control button:hover,
+.leaflet-bar a:hover {
+  background: #f0f0f0;
+}
+.leaflet-container * {
+  box-sizing: content-box;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <h1>LARP</h1>
+  <div id="map"></div>
+</div>
+<!-- Modal -->
+<dialog id="cityModal">
+  <article>
+    <header>
+      <strong>Ciudad de La Plata</strong>
+    </header>
+    <p>
+      Capital de la Provincia de Buenos Aires, fundada en 1882.
+      Destaca por su trazado en cuadrícula con diagonales,
+      planificación geométrica y arquitectura neogótica.
+    </p>
+    <p>
+      Coordenadas aproximadas del centro:
+      <br>
+      Lat: -34.9214
+      <br>
+      Lng: -57.9544
+    </p>
+    <footer>
+      <button onclick="closeModal()">Cerrar</button>
+    </footer>
+  </article>
+</dialog>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const center = [-34.9214, -57.9544];
+const map = L.map("map").setView(center, 13);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution: "&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+// Modal helpers
+const modal = document.getElementById("cityModal");
+function openModal() {
+  modal.showModal();
+}
+function closeModal() {
+  modal.close();
+}
+
+// Crear ícono personalizado
+const customIcon = L.icon({
+  iconUrl: 'URL_DE_TU_IMAGEN.png', // Reemplaza con la URL de tu imagen
+  iconSize: [40, 40],     // Tamaño del ícono [ancho, alto]
+  iconAnchor: [20, 40],   // Punto del ícono que corresponde a la posición del marker [x, y]
+  popupAnchor: [0, -40]   // Punto desde donde se abre el popup relativo al iconAnchor
+});
+
+// Marker central con ícono personalizado - abre modal directamente al hacer clic
+L.marker(center, {icon: customIcon})
+  .addTo(map)
+  .on('click', openModal);
+
+// Cuadrado rotado definido manualmente
+const square = [
+  [-34.888611, -57.956778],
+  [-34.923111, -57.993583],
+  [-34.953556, -57.952694],
+  [-34.919889, -57.915444]
+];
+
+// Polígono verde transparente - abre modal directamente al hacer clic
+L.polygon(square, {
+  color: "green",
+  weight: 2,
+  fillColor: "green",
+  fillOpacity: 0.25
+})
+.addTo(map)
+.on('click', openModal);
+
+// Invalidar el tamaño del mapa después de que se cargue (para responsive)
+setTimeout(function() {
+  map.invalidateSize();
+}, 100);
+</script>
+</body>
+</html>
