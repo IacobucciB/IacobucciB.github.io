@@ -3,61 +3,193 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LARP</title>
+<title>LARP - Mapa de La Plata</title>
 <!-- Leaflet -->
 <link
   rel="stylesheet"
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 />
-<!-- Pico.css (CSS ligero) -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/@picocss/pico@1/css/pico.min.css"
-/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts - Medieval -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Uncial+Antiqua&family=MedievalSharp&display=swap" rel="stylesheet">
+
 <style>
-html, body {
-  height: 100%;
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Uncial+Antiqua&family=MedievalSharp&display=swap');
+
+body {
+  font-family: 'Cinzel', serif;
+  background: linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+  background-attachment: fixed;
 }
-/* wrapper central */
+
+/* Parchment texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(139, 115, 85, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(139, 115, 85, 0.03) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(139, 115, 85, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(139, 115, 85, 0.03) 3px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
 .wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  padding: 2rem;
+  position: relative;
+  z-index: 2;
 }
-/* título */
-h1 {
-  margin: 0;
-  letter-spacing: 0.15em;
-  text-align: center;
+
+.medieval-title {
+  font-family: 'Uncial Antiqua', cursive;
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.8),
+    0 0 20px rgba(218, 165, 32, 0.5),
+    0 0 40px rgba(218, 165, 32, 0.3);
+  color: #daa520;
+  letter-spacing: 0.3em;
 }
-/* mapa rectangular - responsive */
+
+.ornamental-border {
+  border: 3px solid;
+  border-image: linear-gradient(45deg, #8b7355, #daa520, #8b7355) 1;
+  box-shadow: 
+    0 0 30px rgba(218, 165, 32, 0.3),
+    inset 0 0 30px rgba(0,0,0,0.3),
+    0 8px 32px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.ornamental-border::before,
+.ornamental-border::after {
+  content: '✦';
+  position: absolute;
+  color: #daa520;
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(218, 165, 32, 0.8);
+}
+
+.ornamental-border::before {
+  top: -15px;
+  left: -15px;
+}
+
+.ornamental-border::after {
+  bottom: -15px;
+  right: -15px;
+}
+
 #map {
-  width: 90vw;
-  max-width: 900px;
-  height: 500px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.15);
+  background: linear-gradient(135deg, #f4e8d0 0%, #e8dcc4 100%);
+  filter: sepia(0.2) contrast(1.1);
 }
 
-/* En móviles: más alto que ancho */
-@media (max-width: 768px) {
-  .wrapper {
-    padding: 1rem;
-  }
-  
-  #map {
-    width: 90vw;
-    height: 70vh;
-    max-height: 600px;
-  }
+/* Modal styling */
+dialog {
+  background: linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+  border: 3px solid #8b7355;
+  border-radius: 0;
+  box-shadow: 
+    0 0 50px rgba(218, 165, 32, 0.4),
+    inset 0 0 30px rgba(0,0,0,0.5);
+  color: #f4e8d0;
+  max-width: 500px;
+  font-family: 'Cinzel', serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
 }
 
-/* FIX Leaflet + Pico */
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.modal-header {
+  font-family: 'Uncial Antiqua', cursive;
+  color: #daa520;
+  text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+  border-bottom: 2px solid #8b7355;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.modal-button {
+  background: linear-gradient(135deg, #8b7355 0%, #6b5644 100%);
+  border: 2px solid #daa520;
+  color: #f4e8d0;
+  font-family: 'Cinzel', serif;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.modal-button:hover {
+  background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+  box-shadow: 0 0 20px rgba(218, 165, 32, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Decorative corners */
+.corner-decoration {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #daa520;
+}
+
+.corner-tl {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-tr {
+  top: -2px;
+  right: -2px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner-bl {
+  bottom: -2px;
+  left: -2px;
+  border-right: none;
+  border-top: none;
+}
+
+.corner-br {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Leaflet fixes */
 .leaflet-control button,
 .leaflet-bar a {
   all: unset;
@@ -66,73 +198,90 @@ h1 {
   height: 30px;
   line-height: 30px;
   text-align: center;
-  background: white;
-  border: 1px solid #ccc;
+  background: linear-gradient(135deg, #8b7355 0%, #6b5644 100%);
+  border: 2px solid #daa520;
   cursor: pointer;
   font-size: 18px;
+  color: #f4e8d0;
+  transition: all 0.3s ease;
 }
+
 .leaflet-bar {
-  box-shadow: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  border: none;
 }
+
 .leaflet-control button:hover,
 .leaflet-bar a:hover {
-  background: #f0f0f0;
+  background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+  box-shadow: 0 0 15px rgba(218, 165, 32, 0.6);
 }
+
 .leaflet-container * {
   box-sizing: content-box;
 }
+
+/* Scroll styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2c1810;
+  border: 1px solid #8b7355;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8b7355 0%, #6b5644 100%);
+  border: 1px solid #daa520;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+}
+
+/* Flourish divider */
+.flourish {
+  text-align: center;
+  color: #8b7355;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
 </style>
 </head>
-<body>
-<div class="wrapper">
-  <h1>LARP</h1>
-  <div id="map"></div>
+<body class="min-h-screen">
+
+<div class="wrapper min-h-screen flex flex-col justify-center items-center gap-8 p-4 md:p-8">
+  
+  <!-- Decorative top flourish -->
+  <div class="text-center">
+    <div class="text-5xl md:text-7xl mb-4">⚔️</div>
+    <h1 class="medieval-title text-4xl md:text-6xl lg:text-7xl font-bold mb-2">
+      LARP
+    </h1>
+    <div class="text-xl md:text-2xl text-amber-600 tracking-widest font-light" style="font-family: 'Cinzel', serif;">
+      Mapa del Reino
+    </div>
+    <div class="flourish">❈ ✦ ❈</div>
+  </div>
+
+  <!-- Map container with ornamental border -->
+  <div class="relative w-full max-w-5xl">
+    <div class="corner-decoration corner-tl"></div>
+    <div class="corner-decoration corner-tr"></div>
+    <div class="corner-decoration corner-bl"></div>
+    <div class="corner-decoration corner-br"></div>
+    
+    <div id="map" class="ornamental-border w-full h-[500px] md:h-[600px] lg:h-[700px] rounded-sm"></div>
+  </div>
+
+  <!-- Footer flourish -->
+  <div class="text-center text-amber-700 opacity-70" style="font-family: 'Cinzel', serif;">
+    <div class="flourish">❈ ✦ ❈</div>
+    <p class="text-sm tracking-wider">La Plata • Anno Domini MDCCCLXXXII</p>
+  </div>
+
 </div>
-
-<!-- Modal para el Centro de la Ciudad -->
-<dialog id="centerModal">
-  <article>
-    <header>
-      <strong>Centro de la Ciudad de La Plata</strong>
-    </header>
-    <p>
-      Capital de la Provincia de Buenos Aires, fundada en 1882.
-      Destaca por su trazado en cuadrícula con diagonales,
-      planificación geométrica y arquitectura neogótica.
-    </p>
-    <p>
-      Coordenadas aproximadas del centro:
-      <br>
-      Lat: -34.9214
-      <br>
-      Lng: -57.9544
-    </p>
-    <footer>
-      <button onclick="closeCenterModal()">Cerrar</button>
-    </footer>
-  </article>
-</dialog>
-
-<!-- Modal para el Polígono -->
-<dialog id="polygonModal">
-  <article>
-    <header>
-      <strong>Área del Casco Urbano</strong>
-    </header>
-    <p>
-      Este polígono representa el casco urbano fundacional de La Plata,
-      conocido por su diseño urbanístico único en forma de cuadrado
-      con diagonales que convergen en la Plaza Moreno.
-    </p>
-    <p>
-      El trazado fue diseñado por el arquitecto Pedro Benoit y es
-      considerado Patrimonio Cultural de la Humanidad por la UNESCO.
-    </p>
-    <footer>
-      <button onclick="closePolygonModal()">Cerrar</button>
-    </footer>
-  </article>
-</dialog>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -151,15 +300,31 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 function createModal(id, title, content) {
   const dialog = document.createElement("dialog");
   dialog.id = id;
+  dialog.className = "p-0 m-0";
 
   dialog.innerHTML = `
-    <article>
-      <header><strong>${title}</strong></header>
-      <p>${content}</p>
-      <footer>
-        <button onclick="document.getElementById('${id}').close()">Cerrar</button>
-      </footer>
-    </article>
+    <div class="relative p-8">
+      <div class="corner-decoration corner-tl"></div>
+      <div class="corner-decoration corner-tr"></div>
+      <div class="corner-decoration corner-bl"></div>
+      <div class="corner-decoration corner-br"></div>
+      
+      <div class="modal-header text-2xl font-bold mb-6 text-center">
+        ⚔️ ${title} ⚔️
+      </div>
+      
+      <div class="text-base leading-relaxed mb-6 text-amber-100">
+        ${content}
+      </div>
+      
+      <div class="flourish mb-4">❈ ✦ ❈</div>
+      
+      <div class="text-center">
+        <button class="modal-button" onclick="document.getElementById('${id}').close()">
+          Cerrar
+        </button>
+      </div>
+    </div>
   `;
 
   document.body.appendChild(dialog);
@@ -190,6 +355,10 @@ fetch("./data/markers.json")
       .on("click", () => modal.showModal());
   });
 
+})
+.catch(() => {
+  // Fallback if markers.json doesn't exist
+  console.log("No markers.json found - using defaults");
 });
 
 /* =========================
@@ -213,6 +382,10 @@ fetch("./data/polygons.json")
     .on("click", () => modal.showModal());
   });
 
+})
+.catch(() => {
+  // Fallback if polygons.json doesn't exist
+  console.log("No polygons.json found - using defaults");
 });
 
 /* Fix responsive */
